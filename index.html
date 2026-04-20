@@ -3,11 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <!-- CHANGE 10: Updated page title -->
   <title>Stokkt — Smart Pantry &amp; Meal Planning App for Australians</title>
-  <!-- CHANGE 10: Updated meta description -->
   <meta name="description" content="Stokkt is the smart pantry and meal planning app for Australian households. Scan your groceries, match recipes to what you have, and plan your whole week in one tap. Free to download on iOS." />
-  <!-- CHANGE 10: Open Graph tags -->
   <meta property="og:title" content="Stokkt — Smart Pantry &amp; Meal Planning App for Australians" />
   <meta property="og:description" content="Stokkt is the smart pantry and meal planning app for Australian households. Scan your groceries, match recipes to what you have, and plan your whole week in one tap. Free to download on iOS." />
   <meta property="og:type" content="website" />
@@ -18,703 +15,137 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --plum:      #9B4F8E;
-      --plum-dark: #7A3A6E;
-      --plum-soft: #F5EAF8;
-      --linen:     #FAF5EC;
-      --ink:       #2A0818;
-      --muted:     #8A7060;
-      --border:    #E0D0D8;
-      --lime:      #D0E8A8;
-      --lime-dark: #2A6020;
-      --white:     #FFFFFF;
-      --sage-tint: #EEF5E0;
-    }
-
+    :root { --plum: #9B4F8E; --plum-dark: #7A3A6E; --plum-soft: #F5EAF8; --linen: #FAF5EC; --ink: #2A0818; --muted: #8A7060; --border: #E0D0D8; --lime: #D0E8A8; --lime-dark: #2A6020; --white: #FFFFFF; --sage-tint: #EEF5E0; }
     html { scroll-behavior: smooth; }
-
-    body {
-      font-family: 'Inter', sans-serif;
-      background: var(--linen);
-      color: var(--ink);
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    /* ── NAV ── */
-    nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 20px 40px;
-      background: rgba(250, 245, 236, 0.9);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .nav-logo {
-      font-family: 'Playfair Display', serif;
-      font-size: 22px;
-      font-weight: 600;
-      color: var(--plum);
-      text-decoration: none;
-      letter-spacing: -0.3px;
-    }
-
+    body { font-family: 'Inter', sans-serif; background: var(--linen); color: var(--ink); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 20px 40px; background: rgba(250,245,236,0.9); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+    .nav-logo { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 600; color: var(--plum); text-decoration: none; letter-spacing: -0.3px; }
     .nav-logo span { color: var(--lime-dark); }
-
-    .nav-link {
-      font-size: 14px;
-      font-weight: 500;
-      color: var(--muted);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-
+    .nav-link { font-size: 14px; font-weight: 500; color: var(--muted); text-decoration: none; transition: color 0.2s; }
     .nav-link:hover { color: var(--plum); }
-
-    /* ── HERO ── */
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 120px 24px 80px;
-      background: linear-gradient(160deg, #2A0818 0%, #9B4F8E 50%, #7A3A6E 100%);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(ellipse at 60% 40%, rgba(208,232,168,0.12) 0%, transparent 60%),
-                  radial-gradient(ellipse at 20% 80%, rgba(155,79,142,0.3) 0%, transparent 50%);
-      pointer-events: none;
-    }
-
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: rgba(255,255,255,0.12);
-      border: 1px solid rgba(255,255,255,0.2);
-      border-radius: 100px;
-      padding: 6px 16px;
-      font-size: 12px;
-      font-weight: 500;
-      color: rgba(255,255,255,0.85);
-      letter-spacing: 0.5px;
-      text-transform: uppercase;
-      margin-bottom: 32px;
-    }
-
-    .hero-badge-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--lime);
-      animation: pulse 2s infinite;
-    }
-
-    @keyframes pulse {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.6; transform: scale(0.85); }
-    }
-
-    /* CHANGE 1: Stat callout above h1 */
-    .hero-stat-callout {
-      font-size: 14px;
-      font-weight: 500;
-      color: var(--lime);
-      letter-spacing: 0.2px;
-      max-width: 480px;
-      margin: 0 auto 24px;
-      padding-bottom: 24px;
-      border-bottom: 1px solid rgba(208, 232, 168, 0.3);
-      line-height: 1.5;
-    }
-
-    .hero h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(42px, 7vw, 72px);
-      font-weight: 600;
-      color: #ffffff;
-      line-height: 1.1;
-      letter-spacing: -1px;
-      margin-bottom: 12px;
-    }
-
-    .hero h1 em {
-      font-style: normal;
-      color: var(--lime);
-    }
-
-    .hero-tagline {
-      font-size: clamp(16px, 2.5vw, 20px);
-      font-weight: 300;
-      color: rgba(255,255,255,0.7);
-      max-width: 520px;
-      margin: 0 auto 48px;
-      line-height: 1.6;
-    }
-
-    .coming-soon-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      background: var(--white);
-      border-radius: 100px;
-      padding: 16px 32px;
-      font-size: 16px;
-      font-weight: 600;
-      color: var(--ink);
-      text-decoration: none;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.2);
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-
-    .coming-soon-pill:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 12px 40px rgba(0,0,0,0.25);
-    }
-
-    .coming-soon-pill svg {
-      width: 20px;
-      height: 20px;
-    }
-
-    .hero-sub {
-      margin-top: 20px;
-      font-size: 13px;
-      color: rgba(255,255,255,0.45);
-    }
-
-    /* ── FEATURES ── */
-    .features {
-      padding: 100px 24px;
-      max-width: 1080px;
-      margin: 0 auto;
-    }
-
-    .section-label {
-      text-align: center;
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--plum);
-      margin-bottom: 16px;
-    }
-
-    .section-title {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(28px, 4vw, 42px);
-      font-weight: 600;
-      text-align: center;
-      color: var(--ink);
-      line-height: 1.2;
-      margin-bottom: 16px;
-    }
-
-    .section-body {
-      text-align: center;
-      font-size: 17px;
-      color: var(--muted);
-      max-width: 520px;
-      margin: 0 auto 64px;
-      line-height: 1.7;
-    }
-
-    .feature-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 24px;
-    }
-
-    .feature-card {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 36px 32px;
-      transition: transform 0.25s, box-shadow 0.25s;
-    }
-
-    .feature-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 16px 48px rgba(155,79,142,0.1);
-    }
-
-    .feature-icon {
-      font-size: 36px;
-      margin-bottom: 20px;
-      display: block;
-    }
-
-    .feature-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 20px;
-      font-weight: 600;
-      color: var(--ink);
-      margin-bottom: 10px;
-    }
-
-    .feature-desc {
-      font-size: 15px;
-      color: var(--muted);
-      line-height: 1.65;
-    }
-
-    /* ── TESTIMONIALS ── */
-    .testimonials {
-      padding: 100px 24px;
-      background: var(--plum-soft);
-    }
-
-    .testimonials-inner {
-      max-width: 1080px;
-      margin: 0 auto;
-    }
-
-    .testimonials-title {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(28px, 4vw, 42px);
-      font-weight: 600;
-      text-align: center;
-      color: var(--ink);
-      line-height: 1.2;
-      margin-bottom: 48px;
-    }
-
-    .testimonial-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 24px;
-      margin-bottom: 24px;
-    }
-
-    .testimonial-card {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 32px 28px;
-    }
-
-    .testimonial-stars {
-      font-size: 18px;
-      margin-bottom: 16px;
-      letter-spacing: 2px;
-    }
-
-    .testimonial-quote {
-      font-size: 16px;
-      color: var(--ink);
-      line-height: 1.7;
-      margin-bottom: 20px;
-      font-style: italic;
-    }
-
-    .testimonial-author {
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--plum);
-    }
-
-    .testimonial-location {
-      font-size: 12px;
-      color: var(--muted);
-      margin-top: 2px;
-    }
-
-    .testimonial-disclaimer {
-      text-align: center;
-      font-size: 12px;
-      color: var(--muted);
-    }
-
-    /* ── SCREENSHOTS ── */
-    .screenshots {
-      padding: 100px 24px;
-      max-width: 1080px;
-      margin: 0 auto;
-    }
-
-    .screenshots-title {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(28px, 4vw, 42px);
-      font-weight: 600;
-      text-align: center;
-      color: var(--ink);
-      line-height: 1.2;
-      margin-bottom: 48px;
-    }
-
-    .screenshots-grid {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 16px;
-      margin-bottom: 20px;
-    }
-
-    .screenshot-placeholder {
-      background: var(--sage-tint);
-      border-radius: 16px;
-      /* 9:19.5 aspect ratio */
-      aspect-ratio: 9 / 19.5;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 12px;
-    }
-
-    .screenshot-label {
-      font-size: 12px;
-      color: var(--muted);
-      text-align: center;
-      line-height: 1.4;
-      font-weight: 500;
-    }
-
-    .screenshots-note {
-      text-align: center;
-      font-size: 12px;
-      color: var(--muted);
-    }
-
-    /* ── STATS BAND ── */
-    .stats {
-      background: var(--plum);
-      padding: 64px 24px;
-    }
-
-    .stats-inner {
-      max-width: 900px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 40px;
-      text-align: center;
-    }
-
-    .stat-number {
-      font-family: 'Playfair Display', serif;
-      font-size: 42px;
-      font-weight: 600;
-      color: var(--lime);
-      line-height: 1;
-      margin-bottom: 8px;
-    }
-
-    .stat-label {
-      font-size: 14px;
-      color: rgba(255,255,255,0.7);
-      font-weight: 400;
-    }
-
-    /* ── CTA ── */
-    .cta {
-      padding: 100px 24px;
-      text-align: center;
-      background: linear-gradient(160deg, #2A0818 0%, #9B4F8E 100%);
-    }
-
-    .cta h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(28px, 4vw, 48px);
-      font-weight: 600;
-      color: var(--white);
-      margin-bottom: 16px;
-      line-height: 1.2;
-    }
-
-    .cta p {
-      font-size: 17px;
-      color: rgba(255,255,255,0.65);
-      max-width: 460px;
-      margin: 0 auto 40px;
-    }
-
-    .notify-form {
-      display: flex;
-      gap: 12px;
-      max-width: 420px;
-      margin: 0 auto;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-
-    .notify-input {
-      flex: 1;
-      min-width: 220px;
-      padding: 14px 20px;
-      border-radius: 100px;
-      border: none;
-      font-size: 15px;
-      font-family: 'Inter', sans-serif;
-      outline: none;
-      background: rgba(255,255,255,0.15);
-      color: var(--white);
-      border: 1px solid rgba(255,255,255,0.25);
-    }
-
+    .hero { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 120px 24px 80px; background: linear-gradient(160deg, #2A0818 0%, #9B4F8E 50%, #7A3A6E 100%); position: relative; overflow: hidden; }
+    .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 60% 40%, rgba(208,232,168,0.12) 0%, transparent 60%), radial-gradient(ellipse at 20% 80%, rgba(155,79,142,0.3) 0%, transparent 50%); pointer-events: none; }
+    .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2); border-radius: 100px; padding: 6px 16px; font-size: 12px; font-weight: 500; color: rgba(255,255,255,0.85); letter-spacing: 0.5px; text-transform: uppercase; margin-bottom: 32px; }
+    .hero-badge-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--lime); animation: pulse 2s infinite; }
+    @keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.6; transform: scale(0.85); } }
+    .hero-stat-callout { font-size: 14px; font-weight: 500; color: var(--lime); letter-spacing: 0.2px; max-width: 480px; margin: 0 auto 24px; padding-bottom: 24px; border-bottom: 1px solid rgba(208,232,168,0.3); line-height: 1.5; }
+    .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(42px, 7vw, 72px); font-weight: 600; color: #fff; line-height: 1.1; letter-spacing: -1px; margin-bottom: 12px; }
+    .hero h1 em { font-style: normal; color: var(--lime); }
+    .hero-tagline { font-size: clamp(16px, 2.5vw, 20px); font-weight: 300; color: rgba(255,255,255,0.7); max-width: 520px; margin: 0 auto 48px; line-height: 1.6; }
+    .coming-soon-pill { display: inline-flex; align-items: center; gap: 10px; background: var(--white); border-radius: 100px; padding: 16px 32px; font-size: 16px; font-weight: 600; color: var(--ink); text-decoration: none; box-shadow: 0 8px 32px rgba(0,0,0,0.2); transition: transform 0.2s, box-shadow 0.2s; }
+    .coming-soon-pill:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(0,0,0,0.25); }
+    .coming-soon-pill svg { width: 20px; height: 20px; }
+    .hero-sub { margin-top: 20px; font-size: 13px; color: rgba(255,255,255,0.45); }
+    .features { padding: 100px 24px; max-width: 1080px; margin: 0 auto; }
+    .section-label { text-align: center; font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--plum); margin-bottom: 16px; }
+    .section-title { font-family: 'Playfair Display', serif; font-size: clamp(28px, 4vw, 42px); font-weight: 600; text-align: center; color: var(--ink); line-height: 1.2; margin-bottom: 16px; }
+    .section-body { text-align: center; font-size: 17px; color: var(--muted); max-width: 520px; margin: 0 auto 64px; line-height: 1.7; }
+    .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+    .feature-card { background: var(--white); border: 1px solid var(--border); border-radius: 20px; padding: 36px 32px; transition: transform 0.25s, box-shadow 0.25s; }
+    .feature-card:hover { transform: translateY(-4px); box-shadow: 0 16px 48px rgba(155,79,142,0.1); }
+    .feature-icon { font-size: 36px; margin-bottom: 20px; display: block; }
+    .feature-title { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 600; color: var(--ink); margin-bottom: 10px; }
+    .feature-desc { font-size: 15px; color: var(--muted); line-height: 1.65; }
+    .testimonials { padding: 100px 24px; background: var(--plum-soft); }
+    .testimonials-inner { max-width: 1080px; margin: 0 auto; }
+    .testimonials-title { font-family: 'Playfair Display', serif; font-size: clamp(28px, 4vw, 42px); font-weight: 600; text-align: center; color: var(--ink); line-height: 1.2; margin-bottom: 48px; }
+    .testimonial-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-bottom: 24px; }
+    .testimonial-card { background: var(--white); border: 1px solid var(--border); border-radius: 20px; padding: 32px 28px; }
+    .testimonial-stars { font-size: 18px; margin-bottom: 16px; letter-spacing: 2px; }
+    .testimonial-quote { font-size: 16px; color: var(--ink); line-height: 1.7; margin-bottom: 20px; font-style: italic; }
+    .testimonial-author { font-size: 13px; font-weight: 600; color: var(--plum); }
+    .testimonial-location { font-size: 12px; color: var(--muted); margin-top: 2px; }
+    .testimonial-disclaimer { text-align: center; font-size: 12px; color: var(--muted); }
+    .screenshots { padding: 100px 24px; max-width: 1080px; margin: 0 auto; }
+    .screenshots-title { font-family: 'Playfair Display', serif; font-size: clamp(28px, 4vw, 42px); font-weight: 600; text-align: center; color: var(--ink); line-height: 1.2; margin-bottom: 48px; }
+    .screenshots-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; margin-bottom: 20px; }
+    .screenshot-placeholder { background: var(--sage-tint); border-radius: 16px; aspect-ratio: 9 / 19.5; display: flex; align-items: center; justify-content: center; padding: 12px; }
+    .screenshot-label { font-size: 12px; color: var(--muted); text-align: center; line-height: 1.4; font-weight: 500; }
+    .screenshots-note { text-align: center; font-size: 12px; color: var(--muted); }
+    .stats { background: var(--plum); padding: 64px 24px; }
+    .stats-inner { max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; text-align: center; }
+    .stat-number { font-family: 'Playfair Display', serif; font-size: 42px; font-weight: 600; color: var(--lime); line-height: 1; margin-bottom: 8px; }
+    .stat-label { font-size: 14px; color: rgba(255,255,255,0.7); font-weight: 400; }
+    .cta { padding: 100px 24px; text-align: center; background: linear-gradient(160deg, #2A0818 0%, #9B4F8E 100%); }
+    .cta h2 { font-family: 'Playfair Display', serif; font-size: clamp(28px, 4vw, 48px); font-weight: 600; color: var(--white); margin-bottom: 16px; line-height: 1.2; }
+    .cta p { font-size: 17px; color: rgba(255,255,255,0.65); max-width: 460px; margin: 0 auto 40px; }
+    .notify-form { display: flex; gap: 12px; max-width: 420px; margin: 0 auto; flex-wrap: wrap; justify-content: center; }
+    .notify-input { flex: 1; min-width: 220px; padding: 14px 20px; border-radius: 100px; border: 1px solid rgba(255,255,255,0.25); font-size: 15px; font-family: 'Inter', sans-serif; outline: none; background: rgba(255,255,255,0.15); color: var(--white); }
     .notify-input::placeholder { color: rgba(255,255,255,0.45); }
-
-    .notify-btn {
-      padding: 14px 28px;
-      border-radius: 100px;
-      border: none;
-      background: var(--lime);
-      color: var(--ink);
-      font-size: 15px;
-      font-weight: 600;
-      font-family: 'Inter', sans-serif;
-      cursor: pointer;
-      transition: transform 0.2s, opacity 0.2s;
-    }
-
+    .notify-btn { padding: 14px 28px; border-radius: 100px; border: none; background: var(--lime); color: var(--ink); font-size: 15px; font-weight: 600; font-family: 'Inter', sans-serif; cursor: pointer; transition: transform 0.2s, opacity 0.2s; }
     .notify-btn:hover { transform: translateY(-1px); opacity: 0.92; }
-
-    .notify-note {
-      margin-top: 16px;
-      font-size: 12px;
-      color: rgba(255,255,255,0.4);
-    }
-
-    /* ── FOOTER ── */
-    footer {
-      background: var(--ink);
-      padding: 40px 24px;
-      text-align: center;
-    }
-
-    .footer-logo {
-      font-family: 'Playfair Display', serif;
-      font-size: 20px;
-      color: var(--white);
-      margin-bottom: 16px;
-    }
-
+    .notify-note { margin-top: 16px; font-size: 12px; color: rgba(255,255,255,0.4); }
+    footer { background: var(--ink); padding: 40px 24px; text-align: center; }
+    .footer-logo { font-family: 'Playfair Display', serif; font-size: 20px; color: var(--white); margin-bottom: 16px; }
     .footer-logo span { color: var(--lime); }
-
-    .footer-links {
-      display: flex;
-      gap: 24px;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-bottom: 20px;
-    }
-
-    .footer-links a {
-      font-size: 13px;
-      color: rgba(255,255,255,0.45);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-
+    .footer-links { display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; margin-bottom: 20px; }
+    .footer-links a { font-size: 13px; color: rgba(255,255,255,0.45); text-decoration: none; transition: color 0.2s; }
     .footer-links a:hover { color: rgba(255,255,255,0.8); }
-
-    .footer-beta {
-      font-size: 12px;
-      color: rgba(255,255,255,0.35);
-      margin-bottom: 8px;
-    }
-
-    .footer-copy {
-      font-size: 12px;
-      color: rgba(255,255,255,0.25);
-    }
-
-    /* ── RESPONSIVE ── */
-    @media (max-width: 768px) {
-      .screenshots-grid {
-        display: flex;
-        overflow-x: auto;
-        gap: 12px;
-        padding-bottom: 8px;
-        scroll-snap-type: x mandatory;
-        -webkit-overflow-scrolling: touch;
-      }
-      .screenshot-placeholder {
-        flex: 0 0 140px;
-        scroll-snap-align: start;
-      }
-    }
-
-    @media (max-width: 600px) {
-      nav { padding: 16px 20px; }
-      .features { padding: 72px 20px; }
-      .feature-grid { grid-template-columns: 1fr; }
-      .testimonials { padding: 72px 20px; }
-      .testimonial-grid { grid-template-columns: 1fr; }
-      .screenshots { padding: 72px 20px; }
-    }
+    .footer-beta { font-size: 12px; color: rgba(255,255,255,0.35); margin-bottom: 8px; }
+    .footer-copy { font-size: 12px; color: rgba(255,255,255,0.25); }
+    @media (max-width: 768px) { .screenshots-grid { display: flex; overflow-x: auto; gap: 12px; padding-bottom: 8px; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; } .screenshot-placeholder { flex: 0 0 140px; scroll-snap-align: start; } }
+    @media (max-width: 600px) { nav { padding: 16px 20px; } .features { padding: 72px 20px; } .feature-grid { grid-template-columns: 1fr; } .testimonials { padding: 72px 20px; } .testimonial-grid { grid-template-columns: 1fr; } .screenshots { padding: 72px 20px; } }
   </style>
 </head>
 <body>
-
-  <!-- NAV -->
   <nav>
     <a href="/" class="nav-logo">Stokk<span>t</span></a>
     <a href="mailto:hello@stokkt.com.au" class="nav-link">Contact</a>
   </nav>
-
-  <!-- HERO -->
-  <!-- CHANGE 1: Restructured hero order -->
   <section class="hero">
-    <div class="hero-badge">
-      <span class="hero-badge-dot"></span>
-      Coming soon to iOS
-    </div>
-    <!-- CHANGE 1: Stat callout above h1 -->
+    <div class="hero-badge"><span class="hero-badge-dot"></span>Coming soon to iOS</div>
     <p class="hero-stat-callout">The average Australian household throws away $3,000 of food every year.</p>
     <h1>Your kitchen,<br /><em>unlocked.</em></h1>
-    <p class="hero-tagline">
-      The smart pantry and meal planning app that knows what you have, what's expiring, and what to cook with it.
-    </p>
-    <!-- CHANGE 1: Button text updated to "Get early access" -->
+    <p class="hero-tagline">The smart pantry and meal planning app that knows what you have, what's expiring, and what to cook with it.</p>
     <a href="#notify" class="coming-soon-pill">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
-        <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
-      </svg>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
       Get early access
     </a>
     <p class="hero-sub">iOS · Australia · Free to download</p>
   </section>
-
-  <!-- FEATURES -->
   <section class="features">
     <p class="section-label">What Stokkt does</p>
-    <!-- CHANGE 2: Updated features headline -->
     <h2 class="section-title">From scan to dinner.<br />In under a minute.</h2>
-    <p class="section-body">
-      Stokkt brings your pantry, meal plan, and shopping list together in one place — so less food gets wasted and every meal feels effortless.
-    </p>
-
+    <p class="section-body">Stokkt brings your pantry, meal plan, and shopping list together in one place — so less food gets wasted and every meal feels effortless.</p>
     <div class="feature-grid">
-      <div class="feature-card">
-        <span class="feature-icon">🧾</span>
-        <h3 class="feature-title">Scan &amp; stock instantly</h3>
-        <p class="feature-desc">Photograph a receipt and your entire shop lands in your pantry — quantities, categories, and expiry dates captured automatically. No manual entry required.</p>
-      </div>
-      <div class="feature-card">
-        <span class="feature-icon">📅</span>
-        <h3 class="feature-title">Plan your week in one tap</h3>
-        <p class="feature-desc">Generate a full week of meal ideas built around your pantry, your household, and your dietary preferences. Stokkt prioritises items expiring soon so nothing goes to waste.</p>
-      </div>
-      <!-- CHANGE 3: New Cook Mode card inserted as 3rd card -->
-      <div class="feature-card">
-        <span class="feature-icon">👨‍🍳</span>
-        <h3 class="feature-title">Cook Mode — hands free</h3>
-        <p class="feature-desc">Open any recipe and Cook Mode guides you through every step. Your screen stays awake, you tap through each stage, and when you finish your pantry updates automatically. No more phone-propping, no more losing your place.</p>
-      </div>
-      <div class="feature-card">
-        <span class="feature-icon">🍳</span>
-        <h3 class="feature-title">300,000+ real recipes</h3>
-        <p class="feature-desc">Match your pantry to tried-and-tested recipes you can cook right now — or let AI generate something completely original from exactly what you have in stock.</p>
-      </div>
-      <div class="feature-card">
-        <span class="feature-icon">🛒</span>
-        <h3 class="feature-title">Your list, built for you</h3>
-        <p class="feature-desc">Stokkt knows what's running low, what's expired, and what your meal plan needs. Your shopping list writes itself — organised and ready to go.</p>
-      </div>
-      <div class="feature-card">
-        <span class="feature-icon">♻️</span>
-        <h3 class="feature-title">Zero food waste</h3>
-        <p class="feature-desc">Push notifications alert you 3 days before anything expires. Expiring items are automatically prioritised in recipe suggestions so they get used, not thrown out.</p>
-      </div>
-      <!-- CHANGE 5: Updated Stokkt Pro card body text -->
-      <div class="feature-card">
-        <span class="feature-icon">⭐</span>
-        <h3 class="feature-title">Stokkt Pro</h3>
-        <p class="feature-desc">Unlock the full Stokkt experience — unlimited AI recipe generation, the complete 7-day meal planner, unlimited receipt scans, and access to 300,000+ real Spoonacular recipes. Try Pro free for 7 days. $6.99/month AUD after. Cancel anytime.</p>
-      </div>
+      <div class="feature-card"><span class="feature-icon">🧾</span><h3 class="feature-title">Scan &amp; stock instantly</h3><p class="feature-desc">Photograph a receipt and your entire shop lands in your pantry — quantities, categories, and expiry dates captured automatically. No manual entry required.</p></div>
+      <div class="feature-card"><span class="feature-icon">📅</span><h3 class="feature-title">Plan your week in one tap</h3><p class="feature-desc">Generate a full week of meal ideas built around your pantry, your household, and your dietary preferences. Stokkt prioritises items expiring soon so nothing goes to waste.</p></div>
+      <div class="feature-card"><span class="feature-icon">👨‍🍳</span><h3 class="feature-title">Cook Mode — hands free</h3><p class="feature-desc">Open any recipe and Cook Mode guides you through every step. Your screen stays awake, you tap through each stage, and when you finish your pantry updates automatically. No more phone-propping, no more losing your place.</p></div>
+      <div class="feature-card"><span class="feature-icon">🍳</span><h3 class="feature-title">300,000+ real recipes</h3><p class="feature-desc">Match your pantry to tried-and-tested recipes you can cook right now — or let AI generate something completely original from exactly what you have in stock.</p></div>
+      <div class="feature-card"><span class="feature-icon">🛒</span><h3 class="feature-title">Your list, built for you</h3><p class="feature-desc">Stokkt knows what's running low, what's expired, and what your meal plan needs. Your shopping list writes itself — organised and ready to go.</p></div>
+      <div class="feature-card"><span class="feature-icon">♻️</span><h3 class="feature-title">Zero food waste</h3><p class="feature-desc">Push notifications alert you 3 days before anything expires. Expiring items are automatically prioritised in recipe suggestions so they get used, not thrown out.</p></div>
+      <div class="feature-card"><span class="feature-icon">⭐</span><h3 class="feature-title">Stokkt Pro</h3><p class="feature-desc">Unlock the full Stokkt experience — unlimited AI recipe generation, the complete 7-day meal planner, unlimited receipt scans, and access to 300,000+ real Spoonacular recipes. Try Pro free for 7 days. $6.99/month AUD after. Cancel anytime.</p></div>
     </div>
   </section>
-
-  <!-- CHANGE 6: Social proof / testimonials section -->
   <section class="testimonials">
     <div class="testimonials-inner">
       <h2 class="testimonials-title">What our beta users are saying.</h2>
       <div class="testimonial-grid">
-        <div class="testimonial-card">
-          <div class="testimonial-stars">★★★★★</div>
-          <p class="testimonial-quote">"I scanned my Woolworths receipt and my entire shop was in the app in about 30 seconds. Genuinely couldn't believe it."</p>
-          <div class="testimonial-author">Sarah M.</div>
-          <div class="testimonial-location">Sydney, NSW</div>
-        </div>
-        <div class="testimonial-card">
-          <div class="testimonial-stars">★★★★★</div>
-          <p class="testimonial-quote">"We used to throw out at least $50 of food every fortnight. Stokkt basically eliminated that. The expiry alerts actually work."</p>
-          <div class="testimonial-author">James K.</div>
-          <div class="testimonial-location">Melbourne, VIC</div>
-        </div>
-        <div class="testimonial-card">
-          <div class="testimonial-stars">★★★★★</div>
-          <p class="testimonial-quote">"The meal planning is the bit I didn't know I needed. I open it Sunday morning and my whole week is sorted before I've finished my coffee."</p>
-          <div class="testimonial-author">Priya D.</div>
-          <div class="testimonial-location">Brisbane, QLD</div>
-        </div>
+        <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-quote">"I scanned my Woolworths receipt and my entire shop was in the app in about 30 seconds. Genuinely couldn't believe it."</p><div class="testimonial-author">Sarah M.</div><div class="testimonial-location">Sydney, NSW</div></div>
+        <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-quote">"We used to throw out at least $50 of food every fortnight. Stokkt basically eliminated that. The expiry alerts actually work."</p><div class="testimonial-author">James K.</div><div class="testimonial-location">Melbourne, VIC</div></div>
+        <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-quote">"The meal planning is the bit I didn't know I needed. I open it Sunday morning and my whole week is sorted before I've finished my coffee."</p><div class="testimonial-author">Priya D.</div><div class="testimonial-location">Brisbane, QLD</div></div>
       </div>
       <p class="testimonial-disclaimer">Quotes from TestFlight beta users. Individual results may vary.</p>
     </div>
   </section>
-
-  <!-- CHANGE 7: Screenshots section -->
   <section class="screenshots">
     <h2 class="screenshots-title">See it in action.</h2>
     <div class="screenshots-grid">
-      <div class="screenshot-placeholder">
-        <span class="screenshot-label">Home —<br />expiry alerts</span>
-      </div>
-      <div class="screenshot-placeholder">
-        <span class="screenshot-label">Pantry —<br />receipt scan</span>
-      </div>
-      <div class="screenshot-placeholder">
-        <span class="screenshot-label">Recipes —<br />pantry match</span>
-      </div>
-      <div class="screenshot-placeholder">
-        <span class="screenshot-label">Meal Plan —<br />full week</span>
-      </div>
-      <div class="screenshot-placeholder">
-        <span class="screenshot-label">Cook Mode —<br />step by step</span>
-      </div>
+      <div class="screenshot-placeholder"><span class="screenshot-label">Home —<br />expiry alerts</span></div>
+      <div class="screenshot-placeholder"><span class="screenshot-label">Pantry —<br />receipt scan</span></div>
+      <div class="screenshot-placeholder"><span class="screenshot-label">Recipes —<br />pantry match</span></div>
+      <div class="screenshot-placeholder"><span class="screenshot-label">Meal Plan —<br />full week</span></div>
+      <div class="screenshot-placeholder"><span class="screenshot-label">Cook Mode —<br />step by step</span></div>
     </div>
     <p class="screenshots-note">Screenshots coming before launch.</p>
   </section>
-
-  <!-- STATS -->
-  <!-- CHANGE 4: Updated stat values -->
   <section class="stats">
     <div class="stats-inner">
-      <div>
-        <!-- CHANGE 4: $2,500 → $3,000 -->
-        <div class="stat-number">$3,000</div>
-        <div class="stat-label">Average food wasted per Australian household each year</div>
-      </div>
-      <div>
-        <div class="stat-number">300K+</div>
-        <div class="stat-label">Real, tested recipes matched to your pantry</div>
-      </div>
-      <div>
-        <!-- CHANGE 4: Third stat replaced -->
-        <div class="stat-number">3 min</div>
-        <div class="stat-label">Average time to scan a full grocery shop into your pantry</div>
-      </div>
+      <div><div class="stat-number">$3,000</div><div class="stat-label">Average food wasted per Australian household each year</div></div>
+      <div><div class="stat-number">300K+</div><div class="stat-label">Real, tested recipes matched to your pantry</div></div>
+      <div><div class="stat-number">3 min</div><div class="stat-label">Average time to scan a full grocery shop into your pantry</div></div>
     </div>
   </section>
-
-  <!-- CTA / NOTIFY -->
-  <!-- CHANGE 8: Updated heading, body text, and button -->
   <section class="cta" id="notify">
     <h2>Get early access.</h2>
     <p>Join the waitlist and get notified the moment Stokkt hits the App Store. Early access users get 30 days of Stokkt Pro free — no credit card required.</p>
@@ -724,32 +155,25 @@
     </form>
     <p class="notify-note" id="notify-msg">No spam. One email. That's it.</p>
   </section>
-
-  <!-- FOOTER -->
-  <!-- CHANGE 9: Added beta line and updated copyright -->
   <footer>
     <div class="footer-logo">Stokk<span>t</span></div>
     <div class="footer-links">
       <a href="mailto:hello@stokkt.com.au">hello@stokkt.com.au</a>
       <a href="mailto:support@stokkt.com.au">Support</a>
-      <a href="https://stokkt.com.au/privacy-policy.html/?doc=privacy">Privacy Policy</a>
-      <a href="https://stokkt.com.au/terms-of-service.html/?doc=terms">Terms of Service</a>
+      <a href="https://stokkt.com.au/privacy-policy.html">Privacy Policy</a>
+      <a href="https://stokkt.com.au/terms-of-service.html">Terms of Service</a>
     </div>
     <p class="footer-beta">Stokkt is currently in beta. Launching on the App Store soon.</p>
     <p class="footer-copy">© 2026 Stokkt Pty Ltd. Made in Australia. 🌿</p>
   </footer>
-
   <script>
     function handleNotify(e) {
       e.preventDefault();
-      const email = document.getElementById('notify-email').value;
-      const msg   = document.getElementById('notify-msg');
-      // Replace this with a real form handler (Resend, Mailchimp, etc.) when ready
+      const msg = document.getElementById('notify-msg');
       msg.textContent = "✓ You're on the list — we'll be in touch!";
       msg.style.color = '#D0E8A8';
       document.getElementById('notify-email').value = '';
     }
   </script>
-
 </body>
 </html>
