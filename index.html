@@ -42,32 +42,50 @@
     .coming-soon-pill:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(0,0,0,0.25); }
     .coming-soon-pill svg { width: 20px; height: 20px; }
     .hero-sub { margin-top: 20px; font-size: 13px; color: rgba(255,255,255,0.45); }
-    .features { padding: 100px 24px; max-width: 1080px; margin: 0 auto; }
+    .hero-stat-source { font-size: 11px; color: rgba(208,232,168,0.6); margin-top: -16px; margin-bottom: 24px; letter-spacing: 0.3px; }
     .section-label { text-align: center; font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--plum); margin-bottom: 16px; }
     .section-title { font-family: 'Playfair Display', serif; font-size: clamp(28px, 4vw, 42px); font-weight: 600; text-align: center; color: var(--ink); line-height: 1.2; margin-bottom: 16px; }
     .section-body { text-align: center; font-size: 17px; color: var(--muted); max-width: 520px; margin: 0 auto 64px; line-height: 1.7; }
+
+    /* How it works */
+    .how { padding: 80px 24px 40px; max-width: 1080px; margin: 0 auto; }
+    .how-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 48px; }
+    .how-step { text-align: center; padding: 28px 20px; }
+    .how-num { font-family: 'Playfair Display', serif; font-size: 14px; font-weight: 600; letter-spacing: 2px; color: var(--plum); margin-bottom: 12px; }
+    .how-num::before { content: ''; display: inline-block; width: 24px; height: 1px; background: var(--plum); vertical-align: middle; margin-right: 10px; opacity: 0.6; }
+    .how-num::after { content: ''; display: inline-block; width: 24px; height: 1px; background: var(--plum); vertical-align: middle; margin-left: 10px; opacity: 0.6; }
+    .how-title { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 600; color: var(--ink); margin-bottom: 10px; }
+    .how-desc { font-size: 15px; color: var(--muted); line-height: 1.55; max-width: 240px; margin: 0 auto; }
+
+    /* Screenshots carousel */
+    .ss { padding: 80px 24px 100px; max-width: 1080px; margin: 0 auto; }
+    .ss-stage { position: relative; display: flex; align-items: center; justify-content: center; gap: 24px; min-height: 720px; margin: 32px 0 24px; }
+    .ss-arrow { flex: 0 0 48px; height: 48px; border-radius: 50%; border: 1px solid var(--border); background: var(--white); color: var(--plum); cursor: pointer; display: flex; align-items: center; justify-content: center; transition: transform 0.2s, box-shadow 0.2s, background 0.2s; box-shadow: 0 6px 16px rgba(155,79,142,0.06); z-index: 2; }
+    .ss-arrow:hover { transform: scale(1.06); background: var(--plum); color: var(--white); box-shadow: 0 8px 24px rgba(155,79,142,0.18); }
+    .ss-arrow svg { width: 18px; height: 18px; }
+    .ss-window { flex: 1 1 auto; max-width: 720px; position: relative; height: 720px; }
+    .ss-slide { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.45s ease; pointer-events: none; }
+    .ss-slide.active { opacity: 1; pointer-events: auto; }
+    .ss-frame { background: var(--white); border: 1.5px solid var(--border); border-radius: 26px; padding: 8px; box-shadow: 0 24px 60px rgba(155,79,142,0.14); width: 320px; max-width: 90%; }
+    .ss-frame img { width: 100%; height: auto; display: block; border-radius: 20px; }
+    .ss-caption { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 600; color: var(--ink); margin-top: 22px; text-align: center; }
+    .ss-sub { font-size: 14px; color: var(--muted); margin-top: 4px; text-align: center; }
+    .ss-dots { display: flex; justify-content: center; gap: 10px; margin-top: 8px; }
+    .ss-dot { width: 9px; height: 9px; border-radius: 50%; border: 0; background: var(--border); cursor: pointer; padding: 0; transition: background 0.2s, transform 0.2s; }
+    .ss-dot.active { background: var(--plum); transform: scale(1.2); }
+
+    /* Features */
+    .features { padding: 100px 24px; max-width: 1080px; margin: 0 auto; }
     .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
     .feature-card { background: var(--white); border: 1px solid var(--border); border-radius: 20px; padding: 36px 32px; transition: transform 0.25s, box-shadow 0.25s; }
     .feature-card:hover { transform: translateY(-4px); box-shadow: 0 16px 48px rgba(155,79,142,0.1); }
     .feature-icon { width: 52px; height: 52px; margin-bottom: 20px; display: flex; align-items: center; justify-content: center; border-radius: 14px; background: var(--sage-tint); color: var(--plum); }
     .feature-icon svg { width: 26px; height: 26px; }
     .feature-card.pro .feature-icon { background: var(--plum-soft); color: var(--plum); }
-    .how { padding: 80px 24px 20px; max-width: 1080px; margin: 0 auto; }
-    .how-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 48px; }
-    .how-step { text-align: center; padding: 28px 20px; }
-    .how-num { font-family: 'Playfair Display', serif; font-size: 14px; font-weight: 600; letter-spacing: 2px; color: var(--plum); margin-bottom: 12px; }
-    .how-num::before { content: ''; display: inline-block; width: 24px; height: 1px; background: var(--plum); vertical-align: middle; margin-right: 10px; opacity: 0.6; }
-    .how-num::after { content: ''; display: inline-block; width: 24px; height: 1px; background: var(--plum); vertical-align: middle; margin-left: 10px; opacity: 0.6; }
-    .how-title { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 600; color: var(--ink); margin-bottom: 8px; }
-    .how-desc { font-size: 15px; color: var(--muted); line-height: 1.6; max-width: 280px; margin: 0 auto; }
-    .screenshot-frame { background: var(--white); border: 1.5px solid var(--border); border-radius: 22px; padding: 6px; box-shadow: 0 12px 32px rgba(155,79,142,0.08); transition: transform 0.25s, box-shadow 0.25s; }
-    .screenshot-frame:hover { transform: translateY(-4px); box-shadow: 0 20px 48px rgba(155,79,142,0.15); }
-    .screenshot-frame img { width: 100%; height: auto; display: block; border-radius: 16px; }
-    .screenshot-caption { font-size: 12px; color: var(--muted); text-align: center; margin-top: 12px; font-weight: 500; }
-    .hero-stat-source { font-size: 11px; color: rgba(208,232,168,0.6); margin-top: -16px; margin-bottom: 24px; letter-spacing: 0.3px; }
-    .stat-source { font-size: 11px; color: rgba(255,255,255,0.4); margin-top: 4px; }
     .feature-title { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 600; color: var(--ink); margin-bottom: 10px; }
     .feature-desc { font-size: 15px; color: var(--muted); line-height: 1.65; }
+
+    /* Testimonials */
     .testimonials { padding: 100px 24px; background: var(--plum-soft); }
     .testimonials-inner { max-width: 1080px; margin: 0 auto; }
     .testimonials-title { font-family: 'Playfair Display', serif; font-size: clamp(28px, 4vw, 42px); font-weight: 600; text-align: center; color: var(--ink); line-height: 1.2; margin-bottom: 48px; }
@@ -78,13 +96,15 @@
     .testimonial-author { font-size: 13px; font-weight: 600; color: var(--plum); }
     .testimonial-location { font-size: 12px; color: var(--muted); margin-top: 2px; }
     .testimonial-disclaimer { text-align: center; font-size: 12px; color: var(--muted); }
-    .screenshots { padding: 100px 24px; max-width: 1080px; margin: 0 auto; }
-    .screenshots-title { font-family: 'Playfair Display', serif; font-size: clamp(28px, 4vw, 42px); font-weight: 600; text-align: center; color: var(--ink); line-height: 1.2; margin-bottom: 48px; }
-    .screenshots-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; margin-bottom: 20px; }
+
+    /* Stats */
     .stats { background: var(--plum); padding: 64px 24px; }
     .stats-inner { max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; text-align: center; }
     .stat-number { font-family: 'Playfair Display', serif; font-size: 42px; font-weight: 600; color: var(--lime); line-height: 1; margin-bottom: 8px; }
     .stat-label { font-size: 14px; color: rgba(255,255,255,0.7); font-weight: 400; }
+    .stat-source { font-size: 11px; color: rgba(255,255,255,0.4); margin-top: 4px; }
+
+    /* CTA */
     .cta { padding: 100px 24px; text-align: center; background: linear-gradient(160deg, #2A0818 0%, #9B4F8E 100%); }
     .cta h2 { font-family: 'Playfair Display', serif; font-size: clamp(28px, 4vw, 48px); font-weight: 600; color: var(--white); margin-bottom: 16px; line-height: 1.2; }
     .cta p { font-size: 17px; color: rgba(255,255,255,0.65); max-width: 460px; margin: 0 auto 40px; }
@@ -94,6 +114,8 @@
     .notify-btn { padding: 14px 28px; border-radius: 100px; border: none; background: var(--lime); color: var(--ink); font-size: 15px; font-weight: 600; font-family: 'DM Sans', sans-serif; cursor: pointer; transition: transform 0.2s, opacity 0.2s; }
     .notify-btn:hover { transform: translateY(-1px); opacity: 0.92; }
     .notify-note { margin-top: 16px; font-size: 12px; color: rgba(255,255,255,0.4); }
+
+    /* Footer */
     footer { background: var(--ink); padding: 40px 24px; text-align: center; }
     .footer-logo { font-family: 'Playfair Display', serif; font-size: 20px; color: var(--white); margin-bottom: 16px; }
     .footer-logo span { color: var(--lime); }
@@ -102,8 +124,27 @@
     .footer-links a:hover { color: rgba(255,255,255,0.8); }
     .footer-beta { font-size: 12px; color: rgba(255,255,255,0.35); margin-bottom: 8px; }
     .footer-copy { font-size: 12px; color: rgba(255,255,255,0.25); }
-    @media (max-width: 768px) { .screenshots-grid { display: flex; overflow-x: auto; gap: 16px; padding-bottom: 12px; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; } .screenshots-grid > div { flex: 0 0 200px; scroll-snap-align: start; } .how-grid { grid-template-columns: 1fr; gap: 16px; } }
-    @media (max-width: 600px) { nav { padding: 16px 20px; } .features { padding: 72px 20px; } .feature-grid { grid-template-columns: 1fr; } .testimonials { padding: 72px 20px; } .testimonial-grid { grid-template-columns: 1fr; } .screenshots { padding: 72px 20px; } .how { padding: 56px 20px 0; } }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .how-grid { grid-template-columns: 1fr; gap: 16px; }
+      .ss-stage { gap: 8px; min-height: 640px; }
+      .ss-window { height: 640px; }
+      .ss-frame { width: 260px; }
+      .ss-arrow { flex: 0 0 40px; height: 40px; }
+    }
+    @media (max-width: 600px) {
+      nav { padding: 16px 20px; }
+      .features { padding: 72px 20px; }
+      .feature-grid { grid-template-columns: 1fr; }
+      .testimonials { padding: 72px 20px; }
+      .testimonial-grid { grid-template-columns: 1fr; }
+      .ss { padding: 56px 16px 80px; }
+      .ss-stage { min-height: 600px; }
+      .ss-window { height: 600px; }
+      .ss-frame { width: 230px; }
+      .how { padding: 56px 20px 0; }
+    }
   </style>
 </head>
 <body>
@@ -111,6 +152,7 @@
     <a href="/" class="nav-logo">Stokk<span>t</span></a>
     <a href="mailto:hello@stokkt.com.au" class="nav-link">Contact</a>
   </nav>
+
   <section class="hero">
     <div class="hero-badge"><span class="hero-badge-dot"></span>Coming soon to iOS</div>
     <p class="hero-stat-callout">The average Australian household throws away $3,000 of food every year.</p>
@@ -123,6 +165,7 @@
     </a>
     <p class="hero-sub">iOS · Australia · Free to download</p>
   </section>
+
   <section class="how">
     <p class="section-label">How it works</p>
     <h2 class="section-title">Three steps. No friction.</h2>
@@ -130,20 +173,48 @@
       <div class="how-step">
         <div class="how-num">STEP 01</div>
         <div class="how-title">Scan</div>
-        <p class="how-desc">Photograph a receipt or scan a barcode. Stokkt parses everything — quantities, categories, expiry dates — straight into your pantry.</p>
+        <p class="how-desc">Snap a receipt or barcode. Your pantry fills itself.</p>
       </div>
       <div class="how-step">
         <div class="how-num">STEP 02</div>
         <div class="how-title">Plan</div>
-        <p class="how-desc">Tap once. Stokkt builds your week of meals around what you already have, prioritising items about to expire.</p>
+        <p class="how-desc">Tap once. Stokkt plans your week around what you have.</p>
       </div>
       <div class="how-step">
         <div class="how-num">STEP 03</div>
         <div class="how-title">Cook</div>
-        <p class="how-desc">Open any recipe in Cook Mode. Hands-free, step-by-step. Pantry updates itself when you're done.</p>
+        <p class="how-desc">Open Cook Mode. Hands-free, step-by-step.</p>
       </div>
     </div>
   </section>
+
+  <section class="ss" id="see-it">
+    <p class="section-label">See it in action</p>
+    <h2 class="section-title">A look inside the app.</h2>
+    <div class="ss-stage" id="ssStage" aria-roledescription="carousel">
+      <button class="ss-arrow" id="ssPrev" aria-label="Previous screenshot">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+      </button>
+      <div class="ss-window">
+        <div class="ss-slide active" data-idx="0"><div class="ss-frame"><img src="assets/screenshots/home.png" alt="Stokkt home screen showing expiring items" loading="lazy" /></div><div class="ss-caption">Home</div><div class="ss-sub">Expiring soon, at a glance</div></div>
+        <div class="ss-slide" data-idx="1"><div class="ss-frame"><img src="assets/screenshots/pantry.png" alt="Stokkt pantry with receipt-scanned items" loading="lazy" /></div><div class="ss-caption">Pantry</div><div class="ss-sub">Your whole shop, scanned in seconds</div></div>
+        <div class="ss-slide" data-idx="2"><div class="ss-frame"><img src="assets/screenshots/recipes.png" alt="Stokkt recipes matched to pantry" loading="lazy" /></div><div class="ss-caption">Recipes</div><div class="ss-sub">Matched to what you already have</div></div>
+        <div class="ss-slide" data-idx="3"><div class="ss-frame"><img src="assets/screenshots/mealplan.png" alt="Stokkt meal plan for the week" loading="lazy" /></div><div class="ss-caption">Meal Plan</div><div class="ss-sub">A full week, in one tap</div></div>
+        <div class="ss-slide" data-idx="4"><div class="ss-frame"><img src="assets/screenshots/pro.png" alt="Stokkt Pro features" loading="lazy" /></div><div class="ss-caption">Stokkt Pro</div><div class="ss-sub">Unlimited recipes, full 7-day plan</div></div>
+      </div>
+      <button class="ss-arrow" id="ssNext" aria-label="Next screenshot">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
+    </div>
+    <div class="ss-dots" id="ssDots">
+      <button class="ss-dot active" data-idx="0" aria-label="Show slide 1"></button>
+      <button class="ss-dot" data-idx="1" aria-label="Show slide 2"></button>
+      <button class="ss-dot" data-idx="2" aria-label="Show slide 3"></button>
+      <button class="ss-dot" data-idx="3" aria-label="Show slide 4"></button>
+      <button class="ss-dot" data-idx="4" aria-label="Show slide 5"></button>
+    </div>
+  </section>
+
   <section class="features">
     <p class="section-label">What Stokkt does</p>
     <h2 class="section-title">From scan to dinner.<br />In under a minute.</h2>
@@ -158,6 +229,7 @@
       <div class="feature-card pro"><div class="feature-icon"><svg viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><h3 class="feature-title">Stokkt Pro</h3><p class="feature-desc">Unlock the full Stokkt experience — unlimited AI recipe generation, the complete 7-day meal planner, unlimited receipt scans, and access to 300,000+ real Spoonacular recipes. Try Pro free for 7 days. $6.99/month AUD after. Cancel anytime.</p></div>
     </div>
   </section>
+
   <section class="testimonials">
     <div class="testimonials-inner">
       <h2 class="testimonials-title">What our beta users are saying.</h2>
@@ -169,31 +241,7 @@
       <p class="testimonial-disclaimer">Quotes from TestFlight beta users. Individual results may vary.</p>
     </div>
   </section>
-  <section class="screenshots">
-    <h2 class="screenshots-title">See it in action.</h2>
-    <div class="screenshots-grid">
-      <div>
-        <div class="screenshot-frame"><img src="assets/screenshots/home.png" alt="Stokkt home screen showing expiring items" loading="lazy" /></div>
-        <p class="screenshot-caption">Home — expiring soon</p>
-      </div>
-      <div>
-        <div class="screenshot-frame"><img src="assets/screenshots/pantry.png" alt="Stokkt pantry with receipt-scanned items" loading="lazy" /></div>
-        <p class="screenshot-caption">Pantry — receipt scan</p>
-      </div>
-      <div>
-        <div class="screenshot-frame"><img src="assets/screenshots/recipes.png" alt="Stokkt recipes matched to pantry" loading="lazy" /></div>
-        <p class="screenshot-caption">Recipes — pantry match</p>
-      </div>
-      <div>
-        <div class="screenshot-frame"><img src="assets/screenshots/mealplan.png" alt="Stokkt meal plan for the week" loading="lazy" /></div>
-        <p class="screenshot-caption">Meal Plan — full week</p>
-      </div>
-      <div>
-        <div class="screenshot-frame"><img src="assets/screenshots/pro.png" alt="Stokkt Pro features" loading="lazy" /></div>
-        <p class="screenshot-caption">Stokkt Pro — unlock more</p>
-      </div>
-    </div>
-  </section>
+
   <section class="stats">
     <div class="stats-inner">
       <div><div class="stat-number">$3,000</div><div class="stat-label">Average food wasted per Australian household each year</div><div class="stat-source">Source: OzHarvest / FAO, 2024</div></div>
@@ -201,6 +249,7 @@
       <div><div class="stat-number">3 min</div><div class="stat-label">Average time to scan a full grocery shop into your pantry</div></div>
     </div>
   </section>
+
   <section class="cta" id="notify">
     <h2>Get early access.</h2>
     <p>Join the waitlist and get notified the moment Stokkt hits the App Store. Early access users get 30 days of Stokkt Pro free — no credit card required.</p>
@@ -210,7 +259,8 @@
     </form>
     <p class="notify-note" id="notify-msg">No spam. One email. That's it.</p>
   </section>
- <footer>
+
+  <footer>
     <div class="footer-logo">Stokk<span>t</span></div>
     <div class="footer-links">
       <a href="mailto:hello@stokkt.com.au">hello@stokkt.com.au</a>
@@ -221,9 +271,56 @@
     <p class="footer-beta">Stokkt is currently in beta. Launching on the App Store soon.</p>
     <p class="footer-copy">© 2026 Stokkt Pty Ltd. Made in Australia. 🌿</p>
   </footer>
+
   <script>
-    // INTERIM: opens a pre-populated mailto so signups reach hello@stokkt.com.au.
-    // Replace with Mailchimp embed before public launch.
+    // ── Screenshots carousel ─────────────────────────────────────────────────
+    (function () {
+      const slides = document.querySelectorAll('.ss-slide');
+      const dots   = document.querySelectorAll('.ss-dot');
+      const stage  = document.getElementById('ssStage');
+      const prev   = document.getElementById('ssPrev');
+      const next   = document.getElementById('ssNext');
+      const total  = slides.length;
+      let current  = 0;
+      let timer    = null;
+      const INTERVAL_MS = 5000;
+
+      function show(idx) {
+        current = (idx + total) % total;
+        slides.forEach((s, i) => s.classList.toggle('active', i === current));
+        dots.forEach((d, i) => d.classList.toggle('active', i === current));
+      }
+      function nextSlide() { show(current + 1); }
+      function prevSlide() { show(current - 1); }
+      function start() { stop(); timer = setInterval(nextSlide, INTERVAL_MS); }
+      function stop()  { if (timer) { clearInterval(timer); timer = null; } }
+
+      prev.addEventListener('click', () => { prevSlide(); start(); });
+      next.addEventListener('click', () => { nextSlide(); start(); });
+      dots.forEach((dot) => {
+        dot.addEventListener('click', () => { show(parseInt(dot.dataset.idx, 10)); start(); });
+      });
+
+      // Pause when hovered (desktop) or focused (keyboard) — resume on leave
+      stage.addEventListener('mouseenter', stop);
+      stage.addEventListener('mouseleave', start);
+      stage.addEventListener('focusin',  stop);
+      stage.addEventListener('focusout', start);
+
+      // Touch swipe support
+      let touchStartX = null;
+      stage.addEventListener('touchstart', (e) => { touchStartX = e.touches[0].clientX; }, { passive: true });
+      stage.addEventListener('touchend',   (e) => {
+        if (touchStartX === null) return;
+        const dx = e.changedTouches[0].clientX - touchStartX;
+        if (Math.abs(dx) > 40) { dx < 0 ? nextSlide() : prevSlide(); start(); }
+        touchStartX = null;
+      });
+
+      start();
+    })();
+
+    // ── Notify form (interim mailto fallback) ────────────────────────────────
     function handleNotify(e) {
       e.preventDefault();
       const emailField = document.getElementById('notify-email');
