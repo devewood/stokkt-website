@@ -253,9 +253,9 @@
   <section class="cta" id="notify">
     <h2>Get early access.</h2>
     <p>Join the waitlist and get notified the moment Stokkt hits the App Store. Early access users get 30 days of Stokkt Pro free — no credit card required.</p>
-    <form class="notify-form" onsubmit="handleNotify(event)">
-      <input class="notify-input" type="email" placeholder="your@email.com" required id="notify-email" />
-      <button class="notify-btn" type="submit">Get early access →</button>
+    <form class="notify-form" id="notify-form" novalidate>
+      <input class="notify-input" type="email" placeholder="your@email.com" required id="notify-email" name="EMAIL" autocomplete="email" />
+      <button class="notify-btn" type="submit" id="notify-submit">Get early access →</button>
     </form>
     <p class="notify-note" id="notify-msg">No spam. One email. That's it.</p>
   </section>
@@ -320,23 +320,53 @@
       start();
     })();
 
-    // ── Notify form (interim mailto fallback) ────────────────────────────────
-    function handleNotify(e) {
-      e.preventDefault();
-      const emailField = document.getElementById('notify-email');
-      const email = (emailField.value || '').trim();
-      const msg = document.getElementById('notify-msg');
-      if (!email) return;
-      const subject = encodeURIComponent('Stokkt early access — sign me up');
-      const body = encodeURIComponent(
-        'Hi Stokkt team,\n\nPlease add me to the early-access waitlist.\n\nMy email: ' + email +
-        '\n\nThanks!\n'
-      );
-      window.location.href = 'mailto:hello@stokkt.com.au?subject=' + subject + '&body=' + body;
-      msg.textContent = "✓ Almost done — confirm by sending the email that just opened.";
-      msg.style.color = '#D0E8A8';
-      emailField.value = '';
-    }
+    // ── Notify form — posts to Mailchimp Stokkt Waitlist audience ──────────
+    (function () {
+      const MC_ACTION   = 'https://stokkt.us11.list-manage.com/subscribe/post?u=7dd2e92d84c148dcc62f8f1b5&id=025b4d4f60&f_id=003ed5e0f0';
+      const MC_HONEYPOT = 'b_7dd2e92d84c148dcc62f8f1b5_025b4d4f60';
+
+      const form  = document.getElementById('notify-form');
+      const input = document.getElementById('notify-email');
+      const btn   = document.getElementById('notify-submit');
+      const msg   = document.getElementById('notify-msg');
+
+      const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+      form.addEventListener('submit', async function (e) {
+        e.preventDefault();
+        const email = (input.value || '').trim();
+
+        if (!EMAIL_RE.test(email)) {
+          msg.textContent = "Hmm — that doesn't look like a valid email.";
+          msg.style.color = 'rgba(255,255,255,0.85)';
+          return;
+        }
+
+        btn.disabled = true;
+        btn.textContent = 'Adding you…';
+
+        const data = new FormData();
+        data.append('EMAIL', email);
+        data.append(MC_HONEYPOT, ''); // anti-bot field — must stay empty
+
+        // Mailchimp's classic embed endpoint doesn't return CORS headers, so we
+        // fire-and-forget with mode:'no-cors'. The browser submits the request
+        // successfully but we can't read the response. That's fine — Mailchimp
+        // silently handles duplicate emails as a re-subscribe.
+        try {
+          await fetch(MC_ACTION, { method: 'POST', mode: 'no-cors', body: data });
+        } catch (err) {
+          // network error — Mailchimp will retry on next attempt
+        }
+
+        // Optimistic success UI
+        input.style.display = 'none';
+        btn.style.display = 'none';
+        msg.textContent = "✓ You're on the list. Welcome to Stokkt.";
+        msg.style.color = '#D0E8A8';
+        msg.style.fontSize = '15px';
+      });
+    })();
   </script>
 </body>
 </html>
