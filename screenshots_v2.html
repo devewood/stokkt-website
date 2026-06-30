@@ -1,0 +1,801 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Stokkt — Marketing Screenshots v2</title>
+<style>
+  /* Each .screen is a 430x932 canvas rendered by WeasyPrint and converted
+     to PNG via pdftoppm at 96 DPI for 430x932 output. */
+
+  :root {
+    --plum:      #9B4F8E;
+    --plum-d:    #7A3A70;
+    --plum-x:    #5E2A57;
+    --ink:       #2A0818;
+    --ink-s:     #4D2237;
+    --linen:     #FAF5EC;
+    --cream:     #F7F1E5;
+    --warm:      #FFFFFF;
+    --border:    #E0D0D8;
+    --bordersub: #EFE7D8;
+    --muted:     #8A7060;
+    --mutedx:    #B09A90;
+    --chilli:    #D95F2B;
+    --chilli-s:  #E87E4F;
+    --olive:     #5A7A48;
+    --amber:     #C98A2B;
+    --danger:    #C44135;
+    --lime:      #D0E8A8;
+    --sage:      #D0E8A8;
+    --sage-tint: #EEF5E0;
+    --sage-line: #C0D898;
+  }
+
+  @page { size: 430px 932px; margin: 0; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: #111; }
+
+  /* Restrict color emoji to pictograph ranges so digit glyphs stay text */
+  @font-face {
+    font-family: 'StokktEmoji';
+    src: local('Noto Color Emoji');
+    unicode-range: U+1F300-1FAFF, U+1F600-1F64F, U+1F680-1F6FF,
+                   U+1F900-1F9FF, U+2600-26FF, U+2728, U+26A1;
+  }
+
+  body {
+    font-family: "Helvetica Neue", "Liberation Sans", "DejaVu Sans", Arial, sans-serif, 'StokktEmoji';
+    color: var(--ink);
+  }
+
+  .emoji, .ico { line-height: 1; display: inline-block; }
+
+  .screen {
+    width: 430px;
+    height: 932px;
+    position: relative;
+    overflow: hidden;
+    display: block;
+    background: var(--linen);
+    page-break-after: always;
+  }
+  .screen:last-child { page-break-after: auto; }
+
+  /* Marketing hero band */
+  .hero {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 224px;
+    padding: 68px 28px 0;
+    color: #fff;
+    overflow: hidden;
+  }
+  .hero h1 {
+    font-size: 40px;
+    line-height: 1.04;
+    letter-spacing: -1.6px;
+    font-weight: 800;
+    max-width: 360px;
+  }
+  .hero h1 .accent { color: var(--lime); }
+  .hero p {
+    margin-top: 14px;
+    font-size: 16px;
+    line-height: 1.35;
+    color: rgba(255,255,255,.82);
+    max-width: 340px;
+    font-weight: 500;
+  }
+
+  /* App pane (mimics the phone-content area below the hero) */
+  .pane {
+    position: absolute;
+    left: 16px; right: 16px;
+    top: 204px;
+    bottom: 20px;
+    background: var(--linen);
+    border-radius: 32px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,.6);
+  }
+
+  /* Status bar */
+  .sbar {
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 22px 6px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--ink);
+  }
+  .sbar .sicons { display: flex; gap: 6px; align-items: center; font-size: 12px; }
+
+  /* Per-screen hero backgrounds */
+  .screen--home     .hero { background: linear-gradient(150deg, #9B4F8E 0%, #7A3A70 55%, #5E2A57 100%); }
+  .screen--pantry   .hero { background: linear-gradient(150deg, #D95F2B 0%, #B84A1E 55%, #8E3815 100%); }
+  .screen--recipes  .hero { background: linear-gradient(150deg, #5E2A57 0%, #9B4F8E 60%, #B96BA9 100%); }
+  .screen--mealplan .hero { background: linear-gradient(150deg, #5A7A48 0%, #3F5A30 55%, #2B3E21 100%); }
+  .screen--pro      .hero { background: linear-gradient(155deg, #2A0818 0%, #5E2A57 50%, #9B4F8E 100%); }
+
+  .chip {
+    display: inline-flex; align-items: center;
+    padding: 7px 12px;
+    border-radius: 999px;
+    background: var(--warm);
+    border: 1px solid var(--border);
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--ink);
+    white-space: nowrap;
+  }
+  .chip--active { background: var(--plum); color: #fff; border-color: var(--plum); }
+
+  /* ====== SCREEN 1 — HOME =============================================== */
+  /* The actual app shows a plum band header with wordmark + avatar, then a
+     "Good evening, Kate" greeting, a 3-up stats strip, an Expiring section,
+     and a Cook tonight hero card. We mirror that here. */
+
+  .h-band {
+    background: linear-gradient(150deg, #9B4F8E 0%, #7A3A70 100%);
+    padding: 6px 20px 16px;
+    color: #fff;
+  }
+  .h-bandtop { display: flex; align-items: center; justify-content: space-between; }
+  .h-word {
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: 20px; font-weight: 600; letter-spacing: -.3px;
+    color: #fff;
+  }
+  .h-word .t { color: var(--lime); }
+  .h-avatar {
+    width: 36px; height: 36px; border-radius: 50%;
+    background: var(--lime);
+    color: var(--ink); font-weight: 700; font-size: 15px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .h-greet-time {
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: 17px; font-weight: 400; letter-spacing: -.2px;
+    margin-top: 10px;
+    color: rgba(255,255,255,.85);
+  }
+  .h-greet-name {
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: 26px; font-weight: 600; letter-spacing: -.6px;
+    color: #fff;
+    line-height: 1.05;
+    margin-top: 2px;
+  }
+
+  .h-stats {
+    margin: 12px 20px 0;
+    padding: 12px 10px;
+    border-radius: 16px;
+    background: var(--warm);
+    border: 1px solid var(--bordersub);
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+  }
+  .h-stat { flex: 1; text-align: center; padding: 0 4px; }
+  .h-stat .v {
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: 22px; font-weight: 600; letter-spacing: -.6px;
+    line-height: 1;
+  }
+  .h-stat .l {
+    font-size: 10.5px; color: var(--muted);
+    margin-top: 3px; letter-spacing: .3px;
+  }
+  .h-stat-divider { width: 1px; background: var(--border); margin: 4px 0; }
+  .h-stat.in    .v { color: var(--olive); }
+  .h-stat.exp   .v { color: var(--plum); }
+  .h-stat.gone  .v { color: var(--muted); }
+
+  .h-section { padding: 14px 20px 6px; display: flex; align-items: center; justify-content: space-between; }
+  .h-section .ttl { font-family: "Playfair Display", Georgia, serif; font-size: 17px; font-weight: 600; letter-spacing: -.2px; color: var(--ink); white-space: nowrap; }
+  .h-section .more { font-size: 12px; color: var(--plum); font-weight: 600; }
+
+  .h-explist { padding: 0 20px; display: flex; flex-direction: column; gap: 7px; }
+  .h-eitem {
+    display: flex; align-items: center; gap: 12px;
+    background: var(--warm);
+    border: 1px solid var(--bordersub);
+    border-radius: 14px;
+    padding: 9px 14px;
+    height: 54px;
+  }
+  .h-eitem .emoji { font-size: 22px; }
+  .h-eitem .nm { font-size: 13.5px; font-weight: 600; color: var(--ink); }
+  .h-eitem .sub { font-size: 11px; color: var(--muted); margin-top: 1px; }
+  .h-eitem .tag {
+    margin-left: auto; font-size: 10px; font-weight: 700;
+    padding: 4px 9px; border-radius: 8px;
+  }
+  .h-eitem .tag--d { background: #FFE7E1; color: var(--danger); }
+  .h-eitem .tag--w { background: #FBEBCC; color: var(--amber); }
+
+  .h-cook {
+    margin: 10px 20px 0;
+    border-radius: 18px;
+    overflow: hidden;
+    height: 124px;
+    position: relative;
+    border: 1px solid var(--border);
+  }
+  .h-cook .thumb {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(60% 80% at 30% 30%, rgba(217,95,43,.55), transparent),
+      radial-gradient(70% 90% at 80% 70%, rgba(90,122,72,.4), transparent),
+      linear-gradient(135deg, #E9A96B 0%, #C17742 50%, #8A4A28 100%);
+  }
+  .h-cook .match {
+    position: absolute; top: 12px; right: 12px;
+    background: rgba(255,255,255,.94); color: var(--plum);
+    padding: 5px 10px; border-radius: 999px;
+    font-size: 10px; font-weight: 700; letter-spacing: .5px;
+  }
+  .h-cook .ovl {
+    position: absolute; left: 0; right: 0; bottom: 0;
+    padding: 14px 16px;
+    background: linear-gradient(to top, rgba(0,0,0,.6), transparent);
+    color: #fff;
+  }
+  .h-cook .tl { font-family: "Playfair Display", Georgia, serif; font-size: 18px; font-weight: 600; letter-spacing: -.3px; }
+  .h-cook .meta { font-size: 11px; opacity: .9; margin-top: 3px; }
+
+  /* Tab bar */
+  .tabbar {
+    position: absolute; left: 0; right: 0; bottom: 0;
+    height: 78px;
+    background: rgba(255,255,255,.94);
+    border-top: 1px solid var(--bordersub);
+    display: flex; align-items: flex-start; justify-content: space-around;
+    padding: 10px 10px 0;
+  }
+  .tabbar .tab {
+    display: flex; flex-direction: column; align-items: center; gap: 4px;
+    font-size: 10px; color: var(--mutedx); font-weight: 600;
+  }
+  .tabbar .tab.active { color: var(--plum); }
+  .tabbar .tab .ico {
+    width: 26px; height: 26px; border-radius: 7px;
+    background: transparent;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px;
+  }
+  .tabbar .tab.active .ico { background: #F3E5EF; }
+
+  /* ====== SCREEN 2 — PANTRY ============================================= */
+  .p-head { padding: 10px 20px 8px; display: flex; justify-content: space-between; align-items: flex-end; }
+  .p-head h2 { font-family: "Playfair Display", Georgia, serif; font-size: 26px; letter-spacing: -.6px; font-weight: 600; }
+  .p-head .count { font-size: 12px; color: var(--muted); margin-top: 4px; }
+  .p-head .addbtn {
+    width: 38px; height: 38px; border-radius: 12px; background: var(--plum);
+    display: flex; align-items: center; justify-content: center; color: #fff; font-size: 20px; font-weight: 300;
+  }
+  .p-search {
+    margin: 8px 20px 14px; height: 40px; border-radius: 12px;
+    background: var(--warm); border: 1px solid var(--bordersub);
+    display: flex; align-items: center; padding: 0 14px; gap: 10px;
+    color: var(--mutedx); font-size: 13px;
+  }
+  .p-chips { padding: 0 20px 14px; display: flex; gap: 8px; overflow: hidden; }
+  .p-list { padding: 0 20px; display: flex; flex-direction: column; gap: 9px; }
+  .p-item {
+    display: flex; align-items: center; gap: 12px;
+    background: var(--warm); border: 1px solid var(--bordersub);
+    border-radius: 14px; padding: 10px 14px;
+    height: 56px;
+  }
+  .p-item .emoji { font-size: 24px; width: 28px; text-align: center; }
+  .p-item .info { flex: 1; min-width: 0; }
+  .p-item .nm { font-size: 14.5px; font-weight: 600; color: var(--ink); }
+  .p-item .sub { font-size: 11.5px; color: var(--muted); margin-top: 1px; }
+  .p-item .date { text-align: right; }
+  .p-item .date .d { font-size: 11.5px; font-weight: 700; color: var(--muted); }
+  .p-item .date .dd { font-size: 10px; color: var(--mutedx); margin-top: 1px; }
+  .p-item--urgent { background: #FFF4EF; border-color: #F7C8B7; }
+  .p-item--urgent .d { color: var(--danger); }
+  .p-item--warn   { background: #FFF8EC; border-color: #F1D89C; }
+  .p-item--warn .d { color: var(--amber); }
+
+  /* ====== SCREEN 3 — RECIPES ============================================ */
+  .r-head { padding: 10px 20px 10px; display: flex; justify-content: space-between; align-items: flex-end; }
+  .r-head h2 { font-family: "Playfair Display", Georgia, serif; font-size: 26px; letter-spacing: -.6px; font-weight: 600; }
+  .r-head .sub { font-size: 12px; color: var(--muted); margin-top: 4px; }
+
+  .r-cta {
+    margin: 6px 20px 14px; padding: 16px;
+    border-radius: 20px;
+    background: linear-gradient(135deg, var(--plum), var(--plum-d));
+    color: #fff; position: relative; overflow: hidden;
+  }
+  .r-cta .label { font-size: 11px; letter-spacing: 1px; text-transform: uppercase; font-weight: 700; opacity: .85; }
+  .r-cta .title { font-size: 20px; letter-spacing: -.4px; font-weight: 700; margin-top: 4px; }
+  .r-cta .help  { font-size: 12px; opacity: .82; margin-top: 3px; max-width: 240px; }
+  .r-cta .btn   {
+    margin-top: 12px; display: inline-flex; align-items: center; gap: 8px;
+    background: #fff; color: var(--plum); border-radius: 999px;
+    padding: 10px 16px; font-size: 13px; font-weight: 700;
+  }
+
+  .r-filters { padding: 0 20px 12px; display: flex; gap: 8px; overflow: hidden; }
+
+  .r-list { padding: 0 20px; display: flex; flex-direction: column; gap: 12px; }
+  .r-card {
+    background: var(--warm); border: 1px solid var(--bordersub);
+    border-radius: 18px; overflow: hidden; display: flex; height: 98px;
+  }
+  .r-card .thumb {
+    width: 104px; height: 100%;
+    position: relative;
+    flex-shrink: 0;
+  }
+  .r-card .thumb.t1 { background: linear-gradient(135deg, #F7C59F 0%, #D96E3F 100%); }
+  .r-card .thumb.t2 { background: linear-gradient(135deg, #A9C288 0%, #5A7A48 100%); }
+  .r-card .thumb.t3 { background: linear-gradient(135deg, #E9A96B 0%, #AE652D 100%); }
+  .r-card .thumb .ovl {
+    position: absolute; left: 0; right: 0; bottom: 0; padding: 6px 10px;
+    background: linear-gradient(to top, rgba(0,0,0,.5), transparent);
+    color: #fff; font-size: 10px; font-weight: 600; display: flex; justify-content: space-between;
+  }
+  .r-card .body { padding: 12px 14px; flex: 1; display: flex; flex-direction: column; justify-content: space-between; min-width: 0; }
+  .r-card .nm { font-size: 14px; font-weight: 700; color: var(--ink); letter-spacing: -.1px; }
+  .r-card .ing { font-size: 11.5px; color: var(--muted); margin-top: 2px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+  .r-card .meta { display: flex; align-items: center; gap: 10px; font-size: 10.5px; color: var(--muted); }
+  .r-card .meta .match { margin-left: auto; color: var(--olive); font-weight: 700; font-size: 10px; background: var(--sage-tint); padding: 3px 7px; border-radius: 7px; }
+  .r-card .meta .cost { color: var(--olive); font-weight: 700; font-size: 10px; background: var(--sage-tint); padding: 3px 7px; border-radius: 7px; border: 1px solid var(--sage-line); }
+
+  /* ====== SCREEN 4 — MEAL PLAN ========================================== */
+  .m-head { padding: 10px 20px 10px; display: flex; justify-content: space-between; align-items: flex-end; }
+  .m-head h2 { font-family: "Playfair Display", Georgia, serif; font-size: 26px; letter-spacing: -.6px; font-weight: 600; }
+  .m-head .sub { font-size: 12px; color: var(--muted); margin-top: 4px; }
+  .m-head .gen {
+    background: linear-gradient(135deg, #D95F2B, #B84A1E); color: #fff;
+    font-size: 11px; font-weight: 700; padding: 8px 12px; border-radius: 10px;
+    letter-spacing: .2px;
+  }
+
+  /* Pro weekly cost banner — shown above the day list */
+  .m-cost {
+    margin: 4px 20px 12px;
+    padding: 10px 14px;
+    border-radius: 12px;
+    background: var(--sage-tint);
+    border: 1px solid var(--sage-line);
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .m-cost .l { font-size: 11px; color: var(--olive); font-weight: 700; letter-spacing: .3px; text-transform: uppercase; }
+  .m-cost .v { font-family: "Playfair Display", Georgia, serif; font-size: 17px; font-weight: 600; color: var(--olive); letter-spacing: -.2px; }
+
+  .m-days { padding: 0 20px; display: flex; flex-direction: column; gap: 10px; }
+  .m-day {
+    background: var(--warm); border: 1px solid var(--bordersub);
+    border-radius: 16px; padding: 12px 14px;
+  }
+  .m-day .dayh { display: flex; align-items: center; justify-content: space-between; margin-bottom: 9px; }
+  .m-day .dayh .dn { font-weight: 700; font-size: 13px; color: var(--ink); }
+  .m-day .dayh .dd { font-size: 11px; color: var(--muted); }
+  .m-day .slots { display: flex; flex-direction: column; gap: 6px; }
+  .m-slot {
+    display: flex; align-items: center; gap: 10px;
+    padding: 8px 10px; border-radius: 10px; background: #FBF5E9; border: 1px solid #EBDFC6;
+  }
+  .m-slot .lbl { font-size: 10px; color: var(--muted); font-weight: 700; letter-spacing: .3px; text-transform: uppercase; width: 50px; flex-shrink: 0; }
+  .m-slot .tl { font-size: 12.5px; font-weight: 600; color: var(--ink); flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .m-slot .tag { font-size: 9px; font-weight: 700; color: var(--olive); background: var(--sage-tint); padding: 3px 6px; border-radius: 6px; letter-spacing: .3px; }
+  .m-slot--empty { background: transparent; border: 1px dashed #D3C7B4; color: var(--mutedx); }
+  .m-slot--empty .tl { color: var(--mutedx); font-weight: 500; font-style: italic; }
+  .m-day.today { background: #F5E8D6; border-color: #E4CFAA; }
+  .m-day.today .dn { color: var(--chilli); }
+
+  /* ====== SCREEN 5 — PRO ================================================ */
+  .pro-wrap {
+    position: absolute; left: 16px; right: 16px; top: 280px; bottom: 20px;
+    background: var(--linen);
+    border-radius: 32px;
+    padding: 22px 22px 24px;
+    overflow: hidden;
+  }
+  .pro-tag {
+    display: inline-block; background: #F5E8D6; color: var(--chilli);
+    font-size: 10px; font-weight: 800; letter-spacing: 1.2px; text-transform: uppercase;
+    padding: 5px 10px; border-radius: 999px; margin-bottom: 10px;
+  }
+  .pro-title { font-family: "Playfair Display", Georgia, serif; font-size: 26px; letter-spacing: -.5px; font-weight: 600; line-height: 1.1; }
+  .pro-anchor {
+    margin-top: 8px;
+    font-size: 12.5px; font-weight: 600;
+    color: var(--olive);
+    font-style: italic;
+  }
+  .pro-price-row { display: flex; gap: 10px; margin-top: 14px; }
+  .pro-pc {
+    flex: 1; border-radius: 14px; padding: 13px 14px; border: 1.5px solid var(--border); background: var(--warm);
+    position: relative;
+  }
+  .pro-pc .plabel { font-size: 11px; color: var(--muted); font-weight: 700; letter-spacing: .3px; }
+  .pro-pc .pval   { font-family: "Playfair Display", Georgia, serif; font-size: 18px; font-weight: 600; color: var(--ink); letter-spacing: -.4px; margin-top: 3px; }
+  .pro-pc .ptag   { font-size: 10.5px; color: var(--olive); font-weight: 700; margin-top: 3px; }
+  .pro-pc.pc-annual { background: linear-gradient(135deg, #F3E5EF, #EDDDE8); border-color: var(--plum); }
+  .pro-pc .badge {
+    position: absolute; top: -9px; right: 10px;
+    background: var(--plum); color: #fff;
+    font-size: 9.5px; font-weight: 800; letter-spacing: .3px;
+    padding: 3px 8px; border-radius: 999px;
+  }
+  .pro-features { margin-top: 14px; display: flex; flex-direction: column; gap: 8px; }
+  .pro-feat { display: flex; align-items: flex-start; gap: 11px; min-height: 40px; }
+  .pro-feat .tick {
+    width: 22px; height: 22px; border-radius: 50%;
+    background: var(--sage-tint); color: var(--olive);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px; font-weight: 800;
+    flex-shrink: 0; margin-top: 1px;
+    line-height: 1;
+  }
+  .pro-feat .tx .t { font-size: 13.5px; font-weight: 700; color: var(--ink); }
+  .pro-feat .tx .s { font-size: 11.5px; color: var(--muted); margin-top: 1px; line-height: 1.3; }
+
+  .pro-cta {
+    position: absolute; left: 22px; right: 22px; bottom: 22px;
+    height: 52px;
+    border-radius: 16px;
+    background: linear-gradient(135deg, var(--plum), var(--plum-d));
+    color: #fff; font-size: 15px; font-weight: 700; letter-spacing: .1px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .pro-cta .arrow { margin-left: 6px; }
+  .pro-fine {
+    position: absolute; left: 22px; right: 22px; bottom: 82px;
+    text-align: center; font-size: 10.5px; color: var(--muted);
+  }
+</style>
+</head>
+<body>
+
+<!-- ======= SCREEN 1 — HOME =========================================== -->
+<section id="s1" class="screen screen--home">
+  <div class="hero">
+    <h1>Your kitchen,<br><span class="accent">unlocked.</span></h1>
+    <p>Turn the groceries you have into meals you'll actually love.</p>
+  </div>
+  <div class="pane">
+    <div class="sbar">
+      <span>9:41</span>
+      <span class="sicons">5G 100%</span>
+    </div>
+
+    <div class="h-band">
+      <div class="h-bandtop">
+        <div class="h-word">Stokk<span class="t">t</span></div>
+        <div class="h-avatar">K</div>
+      </div>
+      <div class="h-greet-time">Good evening,</div>
+      <div class="h-greet-name">Kate</div>
+    </div>
+
+    <div class="h-stats">
+      <div class="h-stat in"><div class="v">24</div><div class="l">In pantry</div></div>
+      <div class="h-stat-divider"></div>
+      <div class="h-stat exp"><div class="v">3</div><div class="l">Expiring</div></div>
+      <div class="h-stat-divider"></div>
+      <div class="h-stat gone"><div class="v">0</div><div class="l">Expired</div></div>
+    </div>
+
+    <div class="h-section">
+      <div class="ttl">Expiring</div>
+      <div class="more">See all</div>
+    </div>
+    <div class="h-explist">
+      <div class="h-eitem">
+        <span class="emoji">🥬</span>
+        <div>
+          <div class="nm">Baby spinach</div>
+          <div class="sub">120 g · Fridge</div>
+        </div>
+        <span class="tag tag--d">2d left</span>
+      </div>
+      <div class="h-eitem">
+        <span class="emoji">🍗</span>
+        <div>
+          <div class="nm">Chicken breast</div>
+          <div class="sub">500 g · Fridge</div>
+        </div>
+        <span class="tag tag--w">3d left</span>
+      </div>
+    </div>
+
+    <div class="h-section">
+      <div class="ttl">Cook tonight</div>
+    </div>
+    <div class="h-cook">
+      <div class="thumb"></div>
+      <div class="match">94% MATCH</div>
+      <div class="ovl">
+        <div class="tl">Smoky chicken &amp; chickpea bowl</div>
+        <div class="meta">25 min  ·  Serves 4  ·  Uses expiring spinach</div>
+      </div>
+    </div>
+
+    <div class="tabbar">
+      <div class="tab active"><div class="ico">🏠</div>Home</div>
+      <div class="tab"><div class="ico">🥕</div>Pantry</div>
+      <div class="tab"><div class="ico">🍽️</div>Recipes</div>
+      <div class="tab"><div class="ico">📅</div>Meal plan</div>
+      <div class="tab"><div class="ico">🛒</div>Shopping</div>
+    </div>
+  </div>
+</section>
+
+<!-- ======= SCREEN 2 — PANTRY ========================================= -->
+<section id="s2" class="screen screen--pantry">
+  <div class="hero">
+    <h1>$3,000 a year,<br>saved from the bin.</h1>
+    <p>Stokkt tracks what you have and nudges you before it spoils.</p>
+  </div>
+  <div class="pane">
+    <div class="sbar">
+      <span>9:41</span>
+      <span class="sicons">5G 100%</span>
+    </div>
+    <div class="p-head">
+      <div>
+        <h2>Pantry</h2>
+        <div class="count">24 items  ·  3 expiring</div>
+      </div>
+      <div class="addbtn">+</div>
+    </div>
+    <div class="p-search"><span class="emoji">🔎</span>  Search your pantry…</div>
+    <div class="p-chips">
+      <span class="chip chip--active">All</span>
+      <span class="chip">Fridge</span>
+      <span class="chip">Freezer</span>
+      <span class="chip">Pantry</span>
+      <span class="chip">Produce</span>
+    </div>
+    <div class="p-list">
+      <div class="p-item p-item--urgent">
+        <span class="emoji">🥬</span>
+        <div class="info"><div class="nm">Baby spinach</div><div class="sub">Fridge  ·  120 g</div></div>
+        <div class="date"><div class="d">Expires in 2 days</div><div class="dd">Thu</div></div>
+      </div>
+      <div class="p-item p-item--warn">
+        <span class="emoji">🍗</span>
+        <div class="info"><div class="nm">Chicken breast</div><div class="sub">Fridge  ·  500 g</div></div>
+        <div class="date"><div class="d">Expires in 3 days</div><div class="dd">Fri</div></div>
+      </div>
+      <div class="p-item p-item--warn">
+        <span class="emoji">🥛</span>
+        <div class="info"><div class="nm">Full cream milk</div><div class="sub">Fridge  ·  2 L</div></div>
+        <div class="date"><div class="d">Expires in 4 days</div><div class="dd">Sat</div></div>
+      </div>
+      <div class="p-item">
+        <span class="emoji">🧀</span>
+        <div class="info"><div class="nm">Tasty cheese</div><div class="sub">Fridge  ·  250 g</div></div>
+        <div class="date"><div class="d">3 weeks</div><div class="dd">12 May</div></div>
+      </div>
+      <div class="p-item">
+        <span class="emoji">🍅</span>
+        <div class="info"><div class="nm">Roma tomatoes</div><div class="sub">Produce  ·  6 items</div></div>
+        <div class="date"><div class="d">5 days</div><div class="dd">26 Apr</div></div>
+      </div>
+      <div class="p-item">
+        <span class="emoji">🧄</span>
+        <div class="info"><div class="nm">Garlic bulbs</div><div class="sub">Pantry  ·  3 items</div></div>
+        <div class="date"><div class="d">6 weeks</div><div class="dd">2 Jun</div></div>
+      </div>
+    </div>
+
+    <div class="tabbar">
+      <div class="tab"><div class="ico">🏠</div>Home</div>
+      <div class="tab active"><div class="ico">🥕</div>Pantry</div>
+      <div class="tab"><div class="ico">🍽️</div>Recipes</div>
+      <div class="tab"><div class="ico">📅</div>Meal plan</div>
+      <div class="tab"><div class="ico">🛒</div>Shopping</div>
+    </div>
+  </div>
+</section>
+
+<!-- ======= SCREEN 3 — RECIPES ======================================== -->
+<section id="s3" class="screen screen--recipes">
+  <div class="hero">
+    <h1>Cook what you<br>already <span class="accent">have.</span></h1>
+    <p>AI recipes matched to your pantry, your diet, your time.</p>
+  </div>
+  <div class="pane">
+    <div class="sbar">
+      <span>9:41</span>
+      <span class="sicons">5G 100%</span>
+    </div>
+    <div class="r-head">
+      <div>
+        <h2>Recipes</h2>
+        <div class="sub">24 ingredients  ·  Unlimited AI ✦</div>
+      </div>
+    </div>
+
+    <div class="r-cta">
+      <div class="label">AI Recipe Generator</div>
+      <div class="title">What should I cook tonight?</div>
+      <div class="help">Tell us how long you've got and we'll do the rest.</div>
+      <div class="btn"><span class="emoji">⚡</span>  Find me a recipe</div>
+    </div>
+
+    <div class="r-filters">
+      <span class="chip chip--active">Matched</span>
+      <span class="chip">Saved</span>
+      <span class="chip">Quick</span>
+      <span class="chip">Veg</span>
+    </div>
+
+    <div class="r-list">
+      <div class="r-card">
+        <div class="thumb t1"><div class="ovl"><span>25 min</span><span>★ 4.8</span></div></div>
+        <div class="body">
+          <div>
+            <div class="nm">Smoky chicken &amp; chickpea bowl</div>
+            <div class="ing">Chicken  ·  chickpeas  ·  spinach  ·  paprika…</div>
+          </div>
+          <div class="meta"><span>Serves 4</span><span class="cost">$3.40/serve</span><span class="match">94% match</span></div>
+        </div>
+      </div>
+      <div class="r-card">
+        <div class="thumb t2"><div class="ovl"><span>15 min</span><span>★ 4.7</span></div></div>
+        <div class="body">
+          <div>
+            <div class="nm">Green pesto pasta with peas</div>
+            <div class="ing">Pasta  ·  basil  ·  peas  ·  parmesan  ·  olive oil…</div>
+          </div>
+          <div class="meta"><span>Serves 2</span><span class="cost">$2.80/serve</span><span class="match">88% match</span></div>
+        </div>
+      </div>
+      <div class="r-card">
+        <div class="thumb t3"><div class="ovl"><span>30 min</span><span>★ 4.6</span></div></div>
+        <div class="body">
+          <div>
+            <div class="nm">Miso-glazed roast pumpkin</div>
+            <div class="ing">Pumpkin  ·  miso  ·  ginger  ·  sesame  ·  rice…</div>
+          </div>
+          <div class="meta"><span>Serves 3</span><span class="cost">$4.10/serve</span><span class="match">82% match</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tabbar">
+      <div class="tab"><div class="ico">🏠</div>Home</div>
+      <div class="tab"><div class="ico">🥕</div>Pantry</div>
+      <div class="tab active"><div class="ico">🍽️</div>Recipes</div>
+      <div class="tab"><div class="ico">📅</div>Meal plan</div>
+      <div class="tab"><div class="ico">🛒</div>Shopping</div>
+    </div>
+  </div>
+</section>
+
+<!-- ======= SCREEN 4 — MEAL PLAN ====================================== -->
+<section id="s4" class="screen screen--mealplan">
+  <div class="hero">
+    <h1>Your whole week.<br><span class="accent">One tap.</span></h1>
+    <p>Stokkt plans meals around what's in your kitchen.</p>
+  </div>
+  <div class="pane">
+    <div class="sbar">
+      <span>9:41</span>
+      <span class="sicons">5G 100%</span>
+    </div>
+    <div class="m-head">
+      <div>
+        <h2>This week</h2>
+        <div class="sub">29 June – 5 July</div>
+      </div>
+      <div class="gen"><span class="emoji">⚡</span> Generate week</div>
+    </div>
+
+    <div class="m-cost">
+      <div class="l">Weekly cost ✦</div>
+      <div class="v">$68.40</div>
+    </div>
+
+    <div class="m-days">
+      <div class="m-day today">
+        <div class="dayh"><span class="dn">Mon  ·  Today</span><span class="dd">29 Jun</span></div>
+        <div class="slots">
+          <div class="m-slot"><span class="lbl">Breakfast</span><span class="tl">Greek yoghurt &amp; berries</span></div>
+          <div class="m-slot"><span class="lbl">Dinner</span><span class="tl">Smoky chicken &amp; chickpea bowl</span><span class="tag">USES EXPIRING</span></div>
+        </div>
+      </div>
+      <div class="m-day">
+        <div class="dayh"><span class="dn">Tue</span><span class="dd">30 Jun</span></div>
+        <div class="slots">
+          <div class="m-slot"><span class="lbl">Dinner</span><span class="tl">Green pesto pasta &amp; peas</span></div>
+        </div>
+      </div>
+      <div class="m-day">
+        <div class="dayh"><span class="dn">Wed</span><span class="dd">1 Jul</span></div>
+        <div class="slots">
+          <div class="m-slot"><span class="lbl">Dinner</span><span class="tl">Miso-glazed roast pumpkin</span></div>
+        </div>
+      </div>
+      <div class="m-day">
+        <div class="dayh"><span class="dn">Thu</span><span class="dd">2 Jul</span></div>
+        <div class="slots">
+          <div class="m-slot"><span class="lbl">Lunch</span><span class="tl">Sourdough with poached eggs</span></div>
+          <div class="m-slot m-slot--empty"><span class="lbl">Dinner</span><span class="tl">Tap to plan…</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tabbar">
+      <div class="tab"><div class="ico">🏠</div>Home</div>
+      <div class="tab"><div class="ico">🥕</div>Pantry</div>
+      <div class="tab"><div class="ico">🍽️</div>Recipes</div>
+      <div class="tab active"><div class="ico">📅</div>Meal plan</div>
+      <div class="tab"><div class="ico">🛒</div>Shopping</div>
+    </div>
+  </div>
+</section>
+
+<!-- ======= SCREEN 5 — PRO ============================================ -->
+<section id="s5" class="screen screen--pro">
+  <div class="hero" style="height: 300px; padding-top: 90px;">
+    <h1 style="font-size: 42px;">Cook smarter.<br><span class="accent">Waste less.</span></h1>
+    <p>Stokkt Pro — free for 7 days, then $7.99/month AUD.</p>
+  </div>
+
+  <div class="pro-wrap">
+    <div class="pro-tag">★ STOKKT PRO</div>
+    <div class="pro-title">Unlimited recipes,<br>full-week planning.</div>
+    <div class="pro-anchor">Pays for itself in one saved meal.</div>
+
+    <div class="pro-price-row">
+      <div class="pro-pc">
+        <div class="plabel">Monthly</div>
+        <div class="pval">$7.99 /mo</div>
+      </div>
+      <div class="pro-pc pc-annual">
+        <div class="badge">BEST VALUE</div>
+        <div class="plabel">Annual</div>
+        <div class="pval">$79.99 /yr</div>
+        <div class="ptag">2 months free</div>
+      </div>
+    </div>
+
+    <div class="pro-features">
+      <div class="pro-feat">
+        <div class="tick">&#x2713;</div>
+        <div class="tx">
+          <div class="t">Unlimited AI recipes</div>
+          <div class="s">Generate as many smart, pantry-matched recipes as you like.</div>
+        </div>
+      </div>
+      <div class="pro-feat">
+        <div class="tick">&#x2713;</div>
+        <div class="tx">
+          <div class="t">Full 7-day meal planner</div>
+          <div class="s">Plan every meal for the full week ahead.</div>
+        </div>
+      </div>
+      <div class="pro-feat">
+        <div class="tick">&#x2713;</div>
+        <div class="tx">
+          <div class="t">Cost-per-serve estimates</div>
+          <div class="s">See what tonight's dinner will cost before you cook.</div>
+        </div>
+      </div>
+      <div class="pro-feat">
+        <div class="tick">&#x2713;</div>
+        <div class="tx">
+          <div class="t">Save every recipe you love</div>
+          <div class="s">No caps. Build a cookbook that's actually yours.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pro-fine">Cancel anytime. Manage in Apple ID Account Settings.</div>
+    <div class="pro-cta">Try Pro free for 7 days<span class="arrow"> →</span></div>
+  </div>
+</sect
