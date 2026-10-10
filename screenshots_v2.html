@@ -65,8 +65,8 @@
   .hero {
     position: absolute;
     top: 0; left: 0; right: 0;
-    height: 224px;
-    padding: 68px 28px 0;
+    height: 236px;
+    padding: 50px 28px 0;
     color: #fff;
     overflow: hidden;
   }
@@ -91,7 +91,7 @@
   .pane {
     position: absolute;
     left: 16px; right: 16px;
-    top: 204px;
+    top: 216px;
     bottom: 20px;
     background: var(--linen);
     border-radius: 32px;
@@ -114,23 +114,25 @@
 
   /* Per-screen hero backgrounds */
   .screen--home     .hero { background: linear-gradient(150deg, #9B4F8E 0%, #7A3A70 55%, #5E2A57 100%); }
-  .screen--pantry   .hero { background: linear-gradient(150deg, #D95F2B 0%, #B84A1E 55%, #8E3815 100%); }
+  .screen--pantry   .hero { background: linear-gradient(150deg, #B96BA9 0%, #9B4F8E 55%, #7A3A70 100%); }
+  .screen--shopping .hero { background: linear-gradient(150deg, #7A9A5E 0%, #5A7A48 55%, #3F5A30 100%); }
+  .screen--household .hero { background: linear-gradient(150deg, #7A3A70 0%, #5E2A57 55%, #2A0818 100%); }
   .screen--recipes  .hero { background: linear-gradient(150deg, #5E2A57 0%, #9B4F8E 60%, #B96BA9 100%); }
   .screen--mealplan .hero { background: linear-gradient(150deg, #5A7A48 0%, #3F5A30 55%, #2B3E21 100%); }
   .screen--pro      .hero { background: linear-gradient(155deg, #2A0818 0%, #5E2A57 50%, #9B4F8E 100%); }
 
   .chip {
-    display: inline-flex; align-items: center;
+    display: inline-block; line-height: 1.2;
     padding: 7px 12px;
-    border-radius: 999px;
+    border-radius: 20px;
     background: var(--warm);
-    border: 1px solid var(--border);
+    border: none; box-shadow: inset 0 0 0 1px var(--border);
     font-size: 12px;
     font-weight: 600;
     color: var(--ink);
     white-space: nowrap;
   }
-  .chip--active { background: var(--plum); color: #fff; border-color: var(--plum); }
+  .chip--active { background: var(--plum); color: #fff; box-shadow: none; }
 
   /* ====== SCREEN 1 — HOME =============================================== */
   /* The actual app shows a plum band header with wordmark + avatar, then a
@@ -268,6 +270,54 @@
     font-size: 14px;
   }
   .tabbar .tab.active .ico { background: #F3E5EF; }
+
+  /* Lime header tiles — Receipt · Email · Scan · Add (Pantry) */
+  .tiles { display: flex; gap: 5px; position: absolute; left: 192px; top: 50px; }
+  .tile {
+    width: 42px; flex: none; padding: 5px 0 4px; border-radius: 10px; background: var(--lime); border: 1px solid #A8C878;
+    display: flex; flex-direction: column; align-items: center; gap: 3px; font-size: 8.5px; font-weight: 700; color: var(--ink);
+  }
+  .tile .ib { width: 22px; height: 22px; border-radius: 7px; background: rgba(42,8,24,.08); display: flex; align-items: center; justify-content: center; font-size: 12px; }
+  .tile--dark { background: var(--ink); border-color: var(--ink); color: #fff; }
+  .tile--dark .ib { background: rgba(255,255,255,.14); color: #fff; }
+
+  /* ====== SCREEN 6 — SHOPPING =========================================== */
+  .s-label { padding: 0 20px; font-size: 11.5px; font-weight: 700; color: var(--muted); margin: 6px 0 8px; }
+  .q-row { padding: 0 20px; display: flex; gap: 9px; }
+  .q-tile {
+    flex: 1; padding: 10px 0 9px; border-radius: 12px; background: var(--lime); border: 1px solid #A8C878;
+    display: flex; flex-direction: column; align-items: center; gap: 5px; font-size: 11.5px; font-weight: 700; color: var(--ink);
+  }
+  .q-tile .ib { width: 30px; height: 30px; border-radius: 8px; background: rgba(42,8,24,.08); display: flex; align-items: center; justify-content: center; font-size: 15px; }
+  .reg-row { padding: 0 20px; display: flex; gap: 7px; overflow: hidden; }
+  .reg { display: inline-block; line-height: 1.2; padding: 6px 11px; border-radius: 20px; background: #fff; box-shadow: inset 0 0 0 1.5px var(--border); font-size: 12px; font-weight: 600; color: var(--muted); white-space: nowrap; }
+  .reg--due { background: var(--plum); box-shadow: none; color: #fff; }
+  .aisle { padding: 12px 20px 6px; font-size: 10.5px; font-weight: 700; color: var(--muted); letter-spacing: .8px; }
+  .si { margin: 0 20px 6px; display: flex; align-items: center; gap: 11px; background: #fff; border: .5px solid var(--border); border-radius: 12px; padding: 8px 13px; }
+  .si .cb { width: 20px; height: 20px; border-radius: 10px; border: 1.5px solid var(--sage-line); flex: none; }
+  .si .cb--on { background: var(--plum); border-color: var(--plum); color: #fff; font-size: 11px; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+  .si .ec { width: 32px; height: 32px; border-radius: 16px; background: var(--sage-tint); display: flex; align-items: center; justify-content: center; font-size: 16px; flex: none; }
+  .si .nm { font-size: 13.5px; font-weight: 600; color: var(--ink); }
+  .si .q  { font-size: 11px; color: var(--muted); margin-top: 1px; }
+  .si--done { opacity: .55; }
+  .si--done .nm { text-decoration: line-through; color: #C0A8B8; }
+
+  /* ====== SCREEN 7 — SHARE YOUR KITCHEN ================================= */
+  .hh-head { padding: 8px 20px 12px; display: flex; align-items: center; gap: 10px; }
+  .hh-head .bk { font-size: 22px; color: var(--ink); }
+  .hh-head h2 { font-family: "Playfair Display", Georgia, serif; font-size: 24px; letter-spacing: -.6px; font-weight: 600; }
+  .hh-card { margin: 0 20px 12px; background: #fff; border: .5px solid var(--border); border-radius: 14px; overflow: hidden; }
+  .hh-cap { padding: 0 24px 7px; font-size: 10.5px; font-weight: 700; color: var(--muted); letter-spacing: .8px; }
+  .hh-row { display: flex; align-items: center; gap: 12px; padding: 10px 14px; border-bottom: .5px solid var(--border); }
+  .hh-row:last-child { border-bottom: none; }
+  .hh-av { width: 36px; height: 36px; border-radius: 18px; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 15px; flex: none; }
+  .hh-ic { width: 32px; height: 32px; border-radius: 16px; background: var(--sage-tint); display: flex; align-items: center; justify-content: center; font-size: 15px; flex: none; }
+  .hh-row .nm { font-size: 14px; font-weight: 600; color: var(--ink); }
+  .hh-row .sb { font-size: 11.5px; color: var(--muted); margin-top: 1px; }
+  .hh-row .ok { margin-left: auto; font-size: 10.5px; font-weight: 700; color: var(--olive); background: var(--sage-tint); border-radius: 8px; padding: 3px 8px; }
+  .hh-pro { margin: 0 20px; background: #F5EAF8; border: 1px solid #E5CFDF; border-radius: 14px; padding: 12px 15px; display: flex; gap: 11px; align-items: center; }
+  .hh-pro .t { font-size: 13.5px; font-weight: 700; color: var(--ink); }
+  .hh-pro .s { font-size: 11.5px; color: var(--muted); margin-top: 1px; }
 
   /* ====== SCREEN 2 — PANTRY ============================================= */
   .p-head { padding: 10px 20px 8px; display: flex; justify-content: space-between; align-items: flex-end; }
@@ -536,7 +586,7 @@
 <section id="s2" class="screen screen--pantry">
   <div class="hero">
     <h1>$3,000 a year,<br>saved from the bin.</h1>
-    <p>Stokkt tracks what you have and nudges you before it spoils.</p>
+    <p>Scan your shop. Stokkt warns you before anything spoils.</p>
   </div>
   <div class="pane">
     <div class="sbar">
@@ -548,7 +598,12 @@
         <h2>Pantry</h2>
         <div class="count">24 items  ·  3 expiring</div>
       </div>
-      <div class="addbtn">+</div>
+      <div class="tiles">
+        <div class="tile"><div class="ib">🧾</div>Receipt</div>
+        <div class="tile"><div class="ib">✉️</div>Email</div>
+        <div class="tile"><div class="ib">▥</div>Scan</div>
+        <div class="tile tile--dark"><div class="ib">+</div>Add</div>
+      </div>
     </div>
     <div class="p-search"><span class="emoji">🔎</span>  Search your pantry…</div>
     <div class="p-chips">
@@ -743,59 +798,117 @@
 <section id="s5" class="screen screen--pro">
   <div class="hero" style="height: 300px; padding-top: 90px;">
     <h1 style="font-size: 42px;">Cook smarter.<br><span class="accent">Waste less.</span></h1>
-    <p>Stokkt Pro — free for 7 days, then $7.99/month AUD.</p>
+    <p>Stokkt Pro — free for 7 days, then $9.99/month AUD.</p>
   </div>
 
   <div class="pro-wrap">
     <div class="pro-tag">★ STOKKT PRO</div>
-    <div class="pro-title">Unlimited recipes,<br>full-week planning.</div>
-    <div class="pro-anchor">Pays for itself in one saved meal.</div>
+    <div class="pro-title">Scan it. Plan it.<br>Share it.</div>
+    <div class="pro-anchor">One subscription covers two.</div>
 
     <div class="pro-price-row">
       <div class="pro-pc">
         <div class="plabel">Monthly</div>
-        <div class="pval">$7.99 /mo</div>
+        <div class="pval">$9.99 /mo</div>
+        <div class="ptag" style="color: var(--muted)">Billed monthly</div>
       </div>
       <div class="pro-pc pc-annual">
-        <div class="badge">BEST VALUE</div>
+        <div class="badge">SAVE 33%</div>
         <div class="plabel">Annual</div>
         <div class="pval">$79.99 /yr</div>
-        <div class="ptag">2 months free</div>
+        <div class="ptag">Just $6.67/mo</div>
       </div>
     </div>
 
     <div class="pro-features">
-      <div class="pro-feat">
-        <div class="tick">&#x2713;</div>
-        <div class="tx">
-          <div class="t">Unlimited AI recipes</div>
-          <div class="s">Generate as many smart, pantry-matched recipes as you like.</div>
-        </div>
-      </div>
-      <div class="pro-feat">
-        <div class="tick">&#x2713;</div>
-        <div class="tx">
-          <div class="t">Full 7-day meal planner</div>
-          <div class="s">Plan every meal for the full week ahead.</div>
-        </div>
-      </div>
-      <div class="pro-feat">
-        <div class="tick">&#x2713;</div>
-        <div class="tx">
-          <div class="t">Cost-per-serve estimates</div>
-          <div class="s">See what tonight's dinner will cost before you cook.</div>
-        </div>
-      </div>
-      <div class="pro-feat">
-        <div class="tick">&#x2713;</div>
-        <div class="tx">
-          <div class="t">Save every recipe you love</div>
-          <div class="s">No caps. Build a cookbook that's actually yours.</div>
-        </div>
-      </div>
+      <div class="pro-feat"><div class="tick">&#x2713;</div><div class="tx">
+        <div class="t">Unlimited receipt scans</div><div class="s">Your whole shop in one photo — no monthly cap.</div></div></div>
+      <div class="pro-feat"><div class="tick">&#x2713;</div><div class="tx">
+        <div class="t">7-day meal plans</div><div class="s">Every meal, plus a shopping list for what's missing.</div></div></div>
+      <div class="pro-feat"><div class="tick">&#x2713;</div><div class="tx">
+        <div class="t">One-tap Clear-Out</div><div class="s">A plan that uses up the fridge before the next shop.</div></div></div>
+      <div class="pro-feat"><div class="tick">&#x2713;</div><div class="tx">
+        <div class="t">Share your kitchen</div><div class="s">Invite the person you cook with — one subscription, two people.</div></div></div>
     </div>
 
     <div class="pro-fine">Cancel anytime. Manage in Apple ID Account Settings.</div>
     <div class="pro-cta">Try Pro free for 7 days<span class="arrow"> →</span></div>
   </div>
-</sect
+</section>
+
+
+<!-- ======= SCREEN 6 — SHOPPING ======================================= -->
+<section id="s6" class="screen screen--shopping">
+  <div class="hero">
+    <h1>The list that<br><span class="accent">writes itself.</span></h1>
+    <p>It learns your regulars and shops your meal plan for you.</p>
+  </div>
+  <div class="pane">
+    <div class="sbar"><span>9:41</span><span class="sicons">5G 100%</span></div>
+    <div class="p-head"><div><h2>Shopping</h2><div class="count">9 items to get  ·  2 collected</div></div></div>
+    <div class="s-label">Quick add</div>
+    <div class="q-row">
+      <div class="q-tile"><div class="ib">↻</div>Last shop</div>
+      <div class="q-tile"><div class="ib">📅</div>Meal plan</div>
+      <div class="q-tile"><div class="ib">🧺</div>Pantry</div>
+    </div>
+    <div class="s-label" style="margin-top:14px">🔁  Your regulars · tap to add</div>
+    <div class="reg-row">
+      <span class="reg reg--due">🥛  Milk · due</span>
+      <span class="reg">🍌  Bananas</span>
+      <span class="reg">🥚  Eggs</span>
+      <span class="reg">🍞  Sourdough</span>
+    </div>
+    <div class="aisle">FRUIT &amp; VEG (3)</div>
+    <div class="si"><div class="cb"></div><div class="ec">🥬</div><div><div class="nm">Baby spinach</div><div class="q">100 g  ·  For Smoky chicken bowl</div></div></div>
+    <div class="si"><div class="cb"></div><div class="ec">🍋</div><div><div class="nm">Lemons</div><div class="q">2 item</div></div></div>
+    <div class="si"><div class="cb"></div><div class="ec">🧅</div><div><div class="nm">Brown onions</div><div class="q">1 kg</div></div></div>
+    <div class="aisle">MEAT &amp; SEAFOOD (1)</div>
+    <div class="si"><div class="cb"></div><div class="ec">🍗</div><div><div class="nm">Chicken thighs</div><div class="q">800 g  ·  For 2 meals</div></div></div>
+    <div class="aisle">COLLECTED (2)</div>
+    <div class="si si--done"><div class="cb cb--on">✓</div><div class="ec">🧀</div><div><div class="nm">Tasty cheese</div><div class="q">1 item</div></div></div>
+    <div class="tabbar">
+      <div class="tab"><div class="ico">🏠</div>Home</div>
+      <div class="tab"><div class="ico">🥕</div>Pantry</div>
+      <div class="tab"><div class="ico">🍽️</div>Recipes</div>
+      <div class="tab"><div class="ico">📅</div>Meal plan</div>
+      <div class="tab active"><div class="ico">🛒</div>Shopping</div>
+    </div>
+  </div>
+</section>
+
+<!-- ======= SCREEN 7 — SHARE YOUR KITCHEN ============================= -->
+<section id="s7" class="screen screen--household">
+  <div class="hero">
+    <h1>One kitchen.<br><span class="accent">Two cooks.</span></h1>
+    <p>Share it all with the person you cook with — live.</p>
+  </div>
+  <div class="pane">
+    <div class="sbar"><span>9:41</span><span class="sicons">5G 100%</span></div>
+    <div class="hh-head"><span class="bk">‹</span><h2>Household</h2></div>
+    <div class="hh-cap">YOUR KITCHEN</div>
+    <div class="hh-card">
+      <div class="hh-row"><div class="hh-av" style="background:#D0E8A8;color:#2A0818">T</div><div><div class="nm">Tim</div><div class="sb">Owner</div></div></div>
+      <div class="hh-row"><div class="hh-av" style="background:#F3E5EF;color:#9B4F8E">K</div><div><div class="nm">Kate</div><div class="sb">Member · joined today</div></div></div>
+    </div>
+    <div class="hh-cap">SHARED BETWEEN YOU</div>
+    <div class="hh-card">
+      <div class="hh-row"><div class="hh-ic">🧺</div><div><div class="nm">Pantry</div><div class="sb">24 items · both see every scan</div></div><span class="ok">Live</span></div>
+      <div class="hh-row"><div class="hh-ic">📅</div><div><div class="nm">Meal plan</div><div class="sb">7 days planned</div></div><span class="ok">Live</span></div>
+      <div class="hh-row"><div class="hh-ic">🛒</div><div><div class="nm">Shopping list</div><div class="sb">9 items to get</div></div><span class="ok">Live</span></div>
+      <div class="hh-row"><div class="hh-ic">📖</div><div><div class="nm">Saved recipes</div><div class="sb">18 recipes</div></div><span class="ok">Live</span></div>
+      <div class="hh-row"><div class="hh-ic">⚠️</div><div><div class="nm">Allergens</div><div class="sb">Every plan is safe for both of you</div></div><span class="ok">On</span></div>
+    </div>
+    <div class="hh-pro"><div style="font-size:20px">★</div><div><div class="t">Pro, shared</div><div class="s">One subscription covers you both.</div></div></div>
+    <div class="tabbar">
+      <div class="tab"><div class="ico">🏠</div>Home</div>
+      <div class="tab"><div class="ico">🥕</div>Pantry</div>
+      <div class="tab"><div class="ico">🍽️</div>Recipes</div>
+      <div class="tab"><div class="ico">📅</div>Meal plan</div>
+      <div class="tab"><div class="ico">🛒</div>Shopping</div>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>

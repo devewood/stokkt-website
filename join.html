@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Join a Stokkt household</title>
+  <meta name="robots" content="noindex" />
+  <meta property="og:title" content="You've been invited to share a kitchen on Stokkt" />
+  <meta property="og:description" content="One shared pantry, meal plan and shopping list." />
+  <meta property="og:image" content="https://stokkt.com.au/assets/og-image.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    :root { --plum:#9B4F8E; --ink:#2A0818; --lime:#D0E8A8; --linen:#FAF5EC; --muted:#8A7060; --border:#E0D0D8; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { min-height: 100vh; background: var(--plum); font-family: "DM Sans", system-ui, sans-serif; color: #fff;
+           display: flex; align-items: center; justify-content: center; padding: 32px 20px; }
+    .wrap { width: 100%; max-width: 420px; text-align: center; }
+    .wordmark { font-family: "Playfair Display", Georgia, serif; font-weight: 700; font-size: 34px; letter-spacing: -1.2px; }
+    .wordmark span { color: var(--lime); }
+    .emoji { font-size: 64px; margin: 28px 0 12px; }
+    h1 { font-family: "Playfair Display", Georgia, serif; font-size: 32px; line-height: 1.15; letter-spacing: -1px; }
+    p.lead { font-size: 16px; line-height: 1.55; color: rgba(255,255,255,.82); margin: 14px 0 24px; }
+    .card { background: var(--linen); color: var(--ink); border-radius: 20px; padding: 22px; }
+    .label { font-size: 11px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; color: var(--muted); }
+    .code { font-size: 40px; font-weight: 700; letter-spacing: 10px; color: var(--plum); margin: 6px 0 4px; }
+    .note { font-size: 13px; color: var(--muted); }
+    .btn { display: block; width: 100%; text-decoration: none; font-weight: 700; font-size: 17px; border-radius: 28px; padding: 16px; margin-top: 14px; }
+    .btn-primary { background: var(--plum); color: #fff; }
+    .btn-lime { background: var(--lime); color: var(--ink); }
+    ol { text-align: left; margin: 20px 4px 0 22px; font-size: 14px; line-height: 1.6; color: rgba(255,255,255,.85); }
+    .missing { margin-top: 24px; font-size: 14px; color: rgba(255,255,255,.85); }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <div class="wordmark">Stokk<span>t</span></div>
+    <div class="emoji">🏡</div>
+    <h1>You've been invited to share a kitchen.</h1>
+    <p class="lead">One shared pantry, meal plan, shopping list and saved recipes.</p>
+
+    <div class="card" id="card">
+      <div class="label">Your invite code</div>
+      <div class="code" id="code">——————</div>
+      <div class="note">Valid for 24 hours</div>
+      <a class="btn btn-primary" id="open" href="stokkt://join">Open in Stokkt</a>
+    </div>
+
+    <p class="missing">Don't have Stokkt yet?</p>
+    <a class="btn btn-lime" href="https://apps.apple.com/au/app/stokkt/id6761986531">Download on the App Store</a>
+    <ol>
+      <li>Install Stokkt and create your account.</li>
+      <li>Choose <strong>“Joining an existing household”</strong>.</li>
+      <li>Enter the code above.</li>
+    </ol>
+  </main>
+  <script>
+    (function () {
+      var m = location.search.match(/[?&]code=(\d{6})/);
+      var code = m ? m[1] : null;
+      if (code) {
+        document.getElementById('code').textContent = code;
+        document.getElementById('open').href = 'stokkt://join?code=' + code;
+      } else {
+        document.getElementById('card').style.display = 'none';
+      }
+    })();
+  </script>
+</body>
+</html>
