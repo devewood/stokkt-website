@@ -504,6 +504,15 @@
     position: absolute; left: 22px; right: 22px; bottom: 82px;
     text-align: center; font-size: 10.5px; color: var(--muted);
   }
+
+  /* Render fixes (WeasyPrint fades gradients inside rounded panes) */
+  .h-band { background: #9B4F8E; }
+  .m-head .gen { background: #D95F2B; }
+  .m-head h2 { white-space: nowrap; }
+  .h-cook .thumb { top: 0; left: 0; right: 0; bottom: 0; background: #C17742; }
+  .h-cook .thumb2 { position: absolute; top: 0; right: 0; width: 55%; bottom: 0; background: #A65F32; border-radius: 0 0 0 120px; }
+  .h-cook .ovl { background: rgba(42,8,24,.38); }
+  .m-slot .lbl { width: 64px; }
 </style>
 </head>
 <body>
@@ -564,7 +573,7 @@
       <div class="ttl">Cook tonight</div>
     </div>
     <div class="h-cook">
-      <div class="thumb"></div>
+      <div class="thumb"></div><div class="thumb2"></div>
       <div class="match">94% MATCH</div>
       <div class="ovl">
         <div class="tl">Smoky chicken &amp; chickpea bowl</div>
@@ -632,17 +641,17 @@
       <div class="p-item">
         <span class="emoji">🧀</span>
         <div class="info"><div class="nm">Tasty cheese</div><div class="sub">Fridge  ·  250 g</div></div>
-        <div class="date"><div class="d">3 weeks</div><div class="dd">12 May</div></div>
+        <div class="date"><div class="d">3 weeks</div><div class="dd">31 Oct</div></div>
       </div>
       <div class="p-item">
         <span class="emoji">🍅</span>
         <div class="info"><div class="nm">Roma tomatoes</div><div class="sub">Produce  ·  6 items</div></div>
-        <div class="date"><div class="d">5 days</div><div class="dd">26 Apr</div></div>
+        <div class="date"><div class="d">5 days</div><div class="dd">15 Oct</div></div>
       </div>
       <div class="p-item">
         <span class="emoji">🧄</span>
         <div class="info"><div class="nm">Garlic bulbs</div><div class="sub">Pantry  ·  3 items</div></div>
-        <div class="date"><div class="d">6 weeks</div><div class="dd">2 Jun</div></div>
+        <div class="date"><div class="d">6 weeks</div><div class="dd">21 Nov</div></div>
       </div>
     </div>
 
@@ -682,8 +691,8 @@
     </div>
 
     <div class="r-filters">
-      <span class="chip chip--active">Ideas</span>
-      <span class="chip">Real</span>
+      <span class="chip">Ideas</span>
+      <span class="chip chip--active">Real</span>
       <span class="chip">Saved</span>
     </div>
 
@@ -744,7 +753,7 @@
     <div class="m-head">
       <div>
         <h2>This week</h2>
-        <div class="sub">29 June – 5 July</div>
+        <div class="sub">5 – 11 October</div>
       </div>
       <div class="gen"><span class="emoji">⚡</span> Generate week</div>
     </div>
@@ -756,26 +765,26 @@
 
     <div class="m-days">
       <div class="m-day today">
-        <div class="dayh"><span class="dn">Mon  ·  Today</span><span class="dd">29 Jun</span></div>
+        <div class="dayh"><span class="dn">Mon  ·  Today</span><span class="dd">5 Oct</span></div>
         <div class="slots">
           <div class="m-slot"><span class="lbl">Breakfast</span><span class="tl">Greek yoghurt &amp; berries</span></div>
-          <div class="m-slot"><span class="lbl">Dinner</span><span class="tl">Smoky chicken &amp; chickpea bowl</span><span class="tag">USES EXPIRING</span></div>
+          <div class="m-slot"><span class="lbl">Dinner</span><span class="tl">Chickpea bowl</span><span class="tag">USES EXPIRING</span></div>
         </div>
       </div>
       <div class="m-day">
-        <div class="dayh"><span class="dn">Tue</span><span class="dd">30 Jun</span></div>
+        <div class="dayh"><span class="dn">Tue</span><span class="dd">6 Oct</span></div>
         <div class="slots">
           <div class="m-slot"><span class="lbl">Dinner</span><span class="tl">Green pesto pasta &amp; peas</span></div>
         </div>
       </div>
       <div class="m-day">
-        <div class="dayh"><span class="dn">Wed</span><span class="dd">1 Jul</span></div>
+        <div class="dayh"><span class="dn">Wed</span><span class="dd">7 Oct</span></div>
         <div class="slots">
           <div class="m-slot"><span class="lbl">Dinner</span><span class="tl">Miso-glazed roast pumpkin</span></div>
         </div>
       </div>
       <div class="m-day">
-        <div class="dayh"><span class="dn">Thu</span><span class="dd">2 Jul</span></div>
+        <div class="dayh"><span class="dn">Thu</span><span class="dd">8 Oct</span></div>
         <div class="slots">
           <div class="m-slot"><span class="lbl">Lunch</span><span class="tl">Sourdough with poached eggs</span></div>
           <div class="m-slot m-slot--empty"><span class="lbl">Dinner</span><span class="tl">Tap to plan…</span></div>
@@ -860,7 +869,7 @@
     </div>
     <div class="aisle">FRUIT &amp; VEG (3)</div>
     <div class="si"><div class="cb"></div><div class="ec">🥬</div><div><div class="nm">Baby spinach</div><div class="q">100 g  ·  For Smoky chicken bowl</div></div></div>
-    <div class="si"><div class="cb"></div><div class="ec">🍋</div><div><div class="nm">Lemons</div><div class="q">2 item</div></div></div>
+    <div class="si"><div class="cb"></div><div class="ec">🍋</div><div><div class="nm">Lemons</div><div class="q">2 items</div></div></div>
     <div class="si"><div class="cb"></div><div class="ec">🧅</div><div><div class="nm">Brown onions</div><div class="q">1 kg</div></div></div>
     <div class="aisle">MEAT &amp; SEAFOOD (1)</div>
     <div class="si"><div class="cb"></div><div class="ec">🍗</div><div><div class="nm">Chicken thighs</div><div class="q">800 g  ·  For 2 meals</div></div></div>
