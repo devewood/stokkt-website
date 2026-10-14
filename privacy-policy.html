@@ -130,7 +130,7 @@
 
 <main>
   <h1>Privacy Policy</h1>
-  <p class="effective">Effective date: 19 April 2026 &nbsp;|&nbsp; Last updated: 19 April 2026</p>
+  <p class="effective">Effective date: 19 April 2026 &nbsp;|&nbsp; Last updated: 14 October 2026</p>
 
   <div class="highlight-box">
     Stokkt is built to help you manage your pantry and reduce food waste. We only collect the information we need to make the app work, we never sell your data, and we don't show you ads.
@@ -153,7 +153,8 @@
     <li>Pantry items you add manually, via barcode scan, or via receipt scan — including ingredient names, quantities, and expiry dates</li>
     <li>Product information looked up by barcode (product name, category)</li>
     <li>Food packaging photos submitted for expiry date scanning — these are processed by our AI and are not stored</li>
-    <li>Receipt photos submitted for pantry import — processed by our AI and not stored</li>
+    <li>Receipt photos submitted for pantry import — processed by our AI and not stored. We keep the food items and their prices from the receipt (not the photo, store name or payment details) so the app can show the value of food you use or bin.</li>
+    <li>What happens to food you remove — whether you used it, binned it, or added it by mistake — with an estimated value, used for your monthly impact and savings figures</li>
   </ul>
 
   <p><strong>Recipe and meal plan data</strong></p>
@@ -167,6 +168,12 @@
   <p><strong>Usage data</strong></p>
   <ul>
     <li>AI feature request logs — we record when you use AI-powered features (recipe generation, receipt scanning) for the purposes of enforcing free-tier usage limits. We record the timestamp and feature type only, not the content of your requests.</li>
+    <li>When you last opened the app — so we don't send you a notification about something you've already seen in the app that day</li>
+  </ul>
+
+  <p><strong>Crash and error reports</strong></p>
+  <ul>
+    <li>If the app crashes or hits an error, a report is sent to Sentry so we can fix it. Reports include technical details (device model, operating system and app version, and what went wrong) and your account ID. They don't include your name, email address or pantry contents.</li>
   </ul>
 
   <p><strong>Device and notification data</strong></p>
@@ -177,13 +184,20 @@
   <p><strong>Subscription data</strong></p>
   <ul>
     <li>Subscription tier (free or Pro) — managed by RevenueCat. We do not store your payment card details; these are handled entirely by Apple.</li>
+    <li>Whether, and until when, you've been given Pro access at no cost</li>
+  </ul>
+
+  <p><strong>Household sharing</strong></p>
+  <ul>
+    <li>If you join a household, the other member can see the shared pantry, shopping list and meal plan, and your first name. They can't see your email address or the rest of your profile.</li>
   </ul>
 
   <h2>3. How We Use Your Information</h2>
   <ul>
     <li>To provide and operate the Stokkt app</li>
     <li>To personalise recipe suggestions based on your pantry contents and dietary preferences</li>
-    <li>To send push notifications about items approaching their expiry date (only if you opt in)</li>
+    <li>To send push notifications about items approaching their expiry date and a weekly summary (only if you opt in)</li>
+    <li>To find and fix crashes and errors</li>
     <li>To enforce free-tier usage limits on AI-powered features</li>
     <li>To manage your subscription status</li>
     <li>To respond to support requests</li>
@@ -212,8 +226,8 @@
       </tr>
       <tr>
         <td><strong>OpenAI</strong></td>
-        <td>AI recipe generation, meal planning, expiry date scanning</td>
-        <td>Pantry ingredient names, food packaging images (not stored by us), dietary preferences</td>
+        <td>AI recipe generation, meal planning, expiry date and receipt scanning</td>
+        <td>Pantry ingredient names, food packaging and receipt images (not stored by us), dietary preferences</td>
         <td><a href="https://openai.com/policies/privacy-policy" target="_blank" rel="noopener">openai.com/policies/privacy-policy</a></td>
       </tr>
       <tr>
@@ -240,17 +254,26 @@
         <td>Push notification token, notification content</td>
         <td><a href="https://expo.dev/privacy" target="_blank" rel="noopener">expo.dev/privacy</a></td>
       </tr>
+      <tr>
+        <td><strong>Sentry</strong></td>
+        <td>Crash and error reporting (data stored in the EU)</td>
+        <td>Account ID, device model, OS and app version, error details</td>
+        <td><a href="https://sentry.io/privacy/" target="_blank" rel="noopener">sentry.io/privacy</a></td>
+      </tr>
     </tbody>
   </table>
 
+  <p><strong>Overseas processing.</strong> Some of these services store or process data outside Australia, including in the United States (for example OpenAI and RevenueCat) and the European Union (Sentry). We only use providers that protect data with encryption and their own privacy commitments.</p>
+
   <h2>5. Camera and Photo Access</h2>
-  <p>Stokkt requests access to your device camera for two purposes:</p>
+  <p>Stokkt requests access to your device camera for three purposes:</p>
   <ul>
     <li><strong>Barcode scanning</strong> — to look up products by barcode and add them to your pantry. Camera frames are processed on-device; we do not store barcode scan images.</li>
-    <li><strong>Expiry date scanning</strong> — to read best-before and use-by dates from food packaging. The image is sent to OpenAI for text extraction and is not stored by Stokkt or retained by OpenAI after processing.</li>
-    <li><strong>Receipt scanning</strong> — to import groceries from a receipt photo. The image is sent to OpenAI for item extraction and is not stored by Stokkt or retained by OpenAI after processing.</li>
+    <li><strong>Expiry date scanning</strong> — to read best-before and use-by dates from food packaging. The image is sent to OpenAI for text extraction and is not stored by Stokkt.</li>
+    <li><strong>Receipt scanning</strong> — to import groceries from a receipt photo. The image is sent to OpenAI for item extraction and is not stored by Stokkt.</li>
   </ul>
   <p>Camera access is only used when you actively initiate one of these features. We never access your camera in the background.</p>
+  <p>OpenAI does not use data sent through its API to train its models. It may keep requests for up to 30 days to monitor for abuse, then deletes them.</p>
 
   <h2>6. Data Storage and Security</h2>
   <p>Your data is stored in Supabase, which runs on Amazon Web Services (AWS) infrastructure. All data is encrypted in transit using TLS and encrypted at rest. Access to your data is controlled by row-level security policies, meaning each user can only access their own data.</p>
@@ -274,7 +297,7 @@
   <p>Stokkt is not directed at children under the age of 13. We do not knowingly collect personal information from children under 13. If you believe a child under 13 has provided us with personal information, please contact us and we will delete it promptly.</p>
 
   <h2>10. Push Notifications</h2>
-  <p>If you grant notification permission, Stokkt will send you alerts when pantry items are approaching their expiry date. These notifications are sent once daily at 8:00 AM Australian Eastern Standard Time. You can disable notifications at any time in your device Settings app.</p>
+  <p>If you grant notification permission, Stokkt sends at most one notification a day: a weekly summary on Sunday, and on other days an occasional heads-up when something in your pantry goes off tomorrow (skipped if you've already opened the app that day). You can turn off the daily heads-ups in Profile → Notifications, or turn off all notifications in your device Settings app.</p>
 
   <h2>11. Changes to This Policy</h2>
   <p>We may update this Privacy Policy from time to time. When we do, we will update the "Last updated" date at the top of this page. For significant changes, we will notify you via a notice in the app. Your continued use of Stokkt after any changes constitutes your acceptance of the updated policy.</p>
