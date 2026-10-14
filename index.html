@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Stokkt — Eat it, don't bin it. The pantry app for Australian kitchens</title>
+  <title>Stokkt — Your kitchen, unlocked. The pantry app for Australian kitchens</title>
   <meta name="description" content="Stokkt knows what's in your kitchen, tells you what to use first, finds a dinner that uses it, and shows you the money you saved. Made in Australia. No ads, never sells your data." />
-  <meta property="og:title" content="Stokkt — Eat it, don't bin it." />
+  <meta property="og:title" content="Stokkt — Your kitchen, unlocked." />
   <meta property="og:description" content="Scan your shop, use what's going off first, and see what you saved. The calm pantry app for Australian kitchens." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://stokkt.com.au" />
@@ -13,7 +13,7 @@
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Stokkt — Eat it, don't bin it." />
+  <meta name="twitter:title" content="Stokkt — Your kitchen, unlocked." />
   <meta name="twitter:description" content="Scan your shop, use what's going off first, and see what you saved. The calm pantry app for Australian kitchens." />
   <meta name="twitter:image" content="https://stokkt.com.au/assets/og-image.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -49,7 +49,9 @@
     @keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.6; transform: scale(0.85); } }
     .hero-stat-callout { font-size: 15px; font-weight: 500; color: var(--lime); max-width: 520px; margin: 0 auto 6px; line-height: 1.5; }
     .hero-stat-source { font-size: 11px; color: rgba(208,232,168,0.6); margin-bottom: 28px; letter-spacing: 0.3px; }
-    .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(44px, 7.5vw, 80px); font-weight: 600; color: #fff; line-height: 1.05; letter-spacing: -1px; margin-bottom: 20px; }
+    .hero-logo { font-family: 'Playfair Display', serif; font-size: clamp(64px, 12vw, 128px); font-weight: 700; color: #fff; line-height: 1; letter-spacing: -2px; margin-bottom: 26px; }
+    .hero-logo span { color: var(--lime); }
+    .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(30px, 4.6vw, 48px); font-weight: 600; color: #fff; line-height: 1.12; letter-spacing: -0.5px; margin-bottom: 16px; }
     .hero h1 em { font-style: normal; color: var(--lime); }
     .hero-tagline { font-size: clamp(16px, 2.4vw, 20px); font-weight: 300; color: rgba(255,255,255,0.78); max-width: 560px; margin: 0 auto 40px; line-height: 1.6; }
     .btn-pill { display: inline-flex; align-items: center; gap: 10px; background: var(--white); border-radius: 100px; padding: 16px 32px; font-size: 16px; font-weight: 600; color: var(--ink); text-decoration: none; box-shadow: 0 8px 32px rgba(0,0,0,0.2); transition: transform 0.2s, box-shadow 0.2s; }
@@ -243,11 +245,12 @@
   </nav>
 
   <section class="hero">
+    <div class="hero-logo" aria-label="Stokkt">Stokk<span>t</span></div>
     <div class="hero-badge" data-pre><span class="hero-badge-dot"></span>Coming soon · iPhone · Australia</div>
     <div class="hero-badge" data-live><span class="hero-badge-dot"></span>Now on the App Store · Australia</div>
     <p class="hero-stat-callout">The average Australian household bins around $2,500 of food a year.</p>
     <p class="hero-stat-source">Source: End Food Waste Australia</p>
-    <h1>Eat it,<br /><em>don't bin it.</em></h1>
+    <h1>Your kitchen,<br /><em>unlocked.</em></h1>
     <p class="hero-tagline">Stokkt knows what's in your kitchen, tells you what to use first, finds a dinner that uses it, and shows you the money you saved.</p>
     <div data-pre>
       <a href="#notify" class="btn-pill">
