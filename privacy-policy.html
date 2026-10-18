@@ -130,7 +130,7 @@
 
 <main>
   <h1>Privacy Policy</h1>
-  <p class="effective">Effective date: 19 April 2026 &nbsp;|&nbsp; Last updated: 14 October 2026</p>
+  <p class="effective">Effective date: 19 April 2026 &nbsp;|&nbsp; Last updated: 18 October 2026</p>
 
   <div class="highlight-box">
     Stokkt is built to help you manage your pantry and reduce food waste. We only collect the information we need to make the app work, we never sell your data, and we don't show you ads.
@@ -184,13 +184,14 @@
 
   <p><strong>Subscription data</strong></p>
   <ul>
-    <li>Subscription tier (free or Pro) — managed by RevenueCat. We do not store your payment card details; these are handled entirely by Apple.</li>
+    <li>Subscription tier (free or Pro) — managed by RevenueCat. We do not store your payment card details; these are handled entirely by Apple (App Store) or Google (Google Play).</li>
     <li>Whether, and until when, you've been given Pro access at no cost</li>
   </ul>
 
   <p><strong>Household sharing</strong></p>
   <ul>
     <li>If you join a household, the other member can see the shared pantry, shopping list and meal plan, and your first name. They can't see your email address or the rest of your profile.</li>
+    <li>Stokkt also shows household members a combined savings total (for example, "You and Sam saved $63 this month"), which includes the value of food each of you marked as used. Individual items you marked are not shown to the other member.</li>
   </ul>
 
   <h2>3. How We Use Your Information</h2>
@@ -256,6 +257,18 @@
         <td><a href="https://expo.dev/privacy" target="_blank" rel="noopener">expo.dev/privacy</a></td>
       </tr>
       <tr>
+        <td><strong>Google Firebase Cloud Messaging</strong></td>
+        <td>Delivering push notifications to Android devices</td>
+        <td>Push notification token, notification content</td>
+        <td><a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">firebase.google.com/support/privacy</a></td>
+      </tr>
+      <tr>
+        <td><strong>Apple App Store &amp; Google Play</strong></td>
+        <td>Taking subscription payments</td>
+        <td>Handled by Apple or Google under your own account; we receive only the subscription status</td>
+        <td><a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">apple.com/legal/privacy</a> · <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a></td>
+      </tr>
+      <tr>
         <td><strong>Sentry</strong></td>
         <td>Crash and error reporting (data stored in the EU)</td>
         <td>Account ID, device model, OS and app version, error details</td>
@@ -272,6 +285,7 @@
     <li><strong>Barcode scanning</strong> — to look up products by barcode and add them to your pantry. Camera frames are processed on-device; we do not store barcode scan images.</li>
     <li><strong>Expiry date scanning</strong> — to read best-before and use-by dates from food packaging. The image is sent to OpenAI for text extraction and is not stored by Stokkt.</li>
     <li><strong>Receipt scanning</strong> — to import groceries from a receipt photo. The image is sent to OpenAI for item extraction and is not stored by Stokkt.</li>
+    <li><strong>Online orders shared to Stokkt</strong> — when you share a screenshot, invoice PDF or copied item list of an online grocery order to Stokkt, it is sent to OpenAI to read the food items and is not stored by Stokkt. Stokkt only receives what you choose to share.</li>
   </ul>
   <p>Camera access is only used when you actively initiate one of these features. We never access your camera in the background.</p>
   <p>OpenAI does not use data sent through its API to train its models. It may keep requests for up to 30 days to monitor for abuse, then deletes them.</p>
